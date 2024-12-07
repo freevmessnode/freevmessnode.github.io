@@ -1,0 +1,245 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-21970.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Nuxt3 rc.11 填坑 配置 element-plus</title>
+        <meta name="description" content="网上各种版本都有，就是都不太行，不太完整。 先看下package.json {   "private": true,   "scripts": {     "build": "nuxt build"," />
+        <link rel="icon" href="__ADDON__/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                                                        <span><a href="/">Free Vmess Node</a></span>
+                                                                    </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>Nuxt3 rc.11 填坑 配置 element-plus</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p>网上各种版本都有，就是都不太行，不太完整。</p> <p>先看下package.json</p> <pre><code class="language-javascript">{   "private": true,   "scripts": {     "build": "nuxt build",     "dev": "nuxt dev",     "generate": "nuxt generate",     "preview": "nuxt preview",     "postinstall": "nuxt prepare"   },   "devDependencies": {     "nuxt": "3.0.0-rc.11",     "sass": "^1.49.8",     "sass-loader": "^12.6.0",     "unplugin-auto-import": "^0.10.3",     "unplugin-icons": "^0.13.2",     "unplugin-vue-components": "^0.22.8"   },   "dependencies": {     "element-plus": "^2.2.17"   } } </code></pre> <p>tsconfig.json</p> <pre><code class="language-javascript">{   // https://v3.nuxtjs.org/concepts/typescript   "extends": "./.nuxt/tsconfig.json",   "compilerOptions": {     // ...     "types": ["element-plus/global"]   } } </code></pre> <p>nuxt.config.ts</p> <pre><code class="language-javascript">import AutoImport from 'unplugin-auto-import/vite' import Components from "unplugin-vue-components/vite"; import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' import IconsResolver from "unplugin-icons/resolver"; const lifecycle = process.env.npm_lifecycle_event; export default defineNuxtConfig({     vite: {         plugins: [             AutoImport({                 resolvers: [                     ElementPlusResolver(                     ),                     IconsResolver()]             }),             Components({                 dts: true,                 resolvers: [ElementPlusResolver(                     {                         importStyle: false                     }                 )]             }),         ],     },     components: true,     css: ["~/assets/scss/index.scss"],     transpile: ["element-plus"],     build: {         transpile: lifecycle === "build" ? ["element-plus"] : [],     }, }) </code></pre> <p>按照上面的配置在代码中就可以直接引用组件了，例如index.vue中的按钮</p> <pre><code class="language-javascript">&lt;template&gt;   &lt;div&gt;     &lt;h1&gt;Welcome to the homepage&lt;/h1&gt;     &lt;AppAlert&gt; This is an auto-imported component &lt;/AppAlert&gt;     &lt;el-button&gt;I am ElButton&lt;/el-button&gt;      &lt;div&gt;       &lt;el-radio-group v-model="radio1" size="large"&gt;         &lt;el-radio-button label="New York" /&gt;         &lt;el-radio-button label="Washington" /&gt;         &lt;el-radio-button label="Los Angeles" /&gt;         &lt;el-radio-button label="Chicago" /&gt;       &lt;/el-radio-group&gt;     &lt;/div&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script lang="ts" setup&gt; import { ref } from "vue"; const radio1 = ref('New York') &lt;/script&gt; &lt;style lang='scss' scoped&gt; &lt;/style&gt;</code></pre> <p>这时候可能会报错如下</p> <pre><code class="language-javascript">ElementPlusError: [IdInjection] Looks like you are using server rendering, you must provide a id provider to ensure the hydration process to be succeed usage: app.provide(ID_INJECTION_KEY, {   prefix: number,   current: number, })     at debugWarn (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/utils/error.mjs:15:37)     at useId (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/hooks/use-id/index.mjs:16:5)     at setup (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/components/radio/src/radio-group2.mjs:26:21)     at callWithErrorHandling (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:157:22)     at setupStatefulComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:7118:29)     at setupComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:7073:11)     at renderComponentVNode (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js:172:17)     at Module.ssrRenderComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js:612:12)     at _sfc_ssrRender (E:/h5/vuestudy/vue3Study/nuxt-app/pages/index.vue:58:31)     a</code></pre> <p>这是因为 在SSR下elementui需要配置一个provide</p> <p>需要在 plugins文件夹下建立一个element-plus.ts</p> <pre><code class="language-javascript">import { ID_INJECTION_KEY } from 'element-plus';  export default defineNuxtPlugin(nuxtApp =&gt; {     // Doing something with nuxtApp     nuxtApp.vueApp.provide(ID_INJECTION_KEY,{         prefix: Math.floor(Math.random() * 10000),         current: 0,     })   })</code></pre> <p>然后再进行重启服务 npm run dev，就可以运行正常了，控制台也不会有警告和错误了</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21512.htm">猫咪猫瘟疫苗多少钱（猫瘟疫苗管多久）</a></p>
+                                        <p>下一个：<a href="/news/article-21971.htm">宠物粮品牌排行榜前十（宠物粮品牌排行榜前十名）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-subscribe-node.htm" title="10月1日 | Vmess节点订阅每天更新20.7M/S免费节点订阅链接">10月1日 | Vmess节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-latest-vmess-node.htm" title="10月7日 | Vmess节点订阅每天更新22.3M/S免费节点订阅链接">10月7日 | Vmess节点订阅每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-vmess-node.htm" title="11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19224.htm" title="快速入门kotlin-标准函数与静态方法">快速入门kotlin-标准函数与静态方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-subscribe-node.htm" title="8月25日 | Vmess节点订阅每天更新22.9M/S免费节点订阅链接">8月25日 | Vmess节点订阅每天更新22.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe.htm" title="12月7日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接">12月7日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-today-vmess-node.htm" title="9月16日 | Vmess节点订阅每天更新22.8M/S免费节点订阅链接">9月16日 | Vmess节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-8-node-share-links.htm" title="8月8日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">8月8日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22430.htm" title="青岛哪家动物医院好一点（青岛哪家宠物医院好）">青岛哪家动物医院好一点（青岛哪家宠物医院好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-vmess-windows.htm" title="11月7日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接">11月7日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
