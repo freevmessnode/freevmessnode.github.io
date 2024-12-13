@@ -1,0 +1,245 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-24739.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>.Net连接数据库的方式详解_实用技巧</title>
+        <meta name="description" content="一、C#中连接字符串常用内容    参数 说明   Provider 设置或者返回提供的连接程式的名称，仅用于OLeDbConnection对象   Connection Timeout 在终止尝试并" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                                                        <span><a href="/">Free Vmess Node</a></span>
+                                                                    </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>.Net连接数据库的方式详解_实用技巧</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<h2>一、C#中连接字符串常用内容</h2> <table> <tbody> <tr> <th>参数</th> <th>说明</th> </tr> <tr> <td>Provider</td> <td>设置或者返回提供的连接程式的名称，仅用于OLeDbConnection对象</td> </tr> <tr> <td>Connection Timeout</td> <td>在终止尝试并产生异常前，等待连接到服务器的连接时间长度（以秒为单位）。默认值是15秒</td> </tr> <tr> <td>Initial Catalog或Database</td> <td>连接的数据库名称</td> </tr> <tr> <td>Data Source或Server</td> <td>连接打开时使用的SQL Server服务签名，或者Access数据库文件名（localhost或127.0.0.1）</td> </tr> <tr> <td>Password或pwd</td> <td>Sql Server登录密码</td> </tr> <tr> <td>User ID或uid</td> <td>Sql Server登录账户</td> </tr> <tr> <td>Integrated Sercuity</td> <td>决定连接是否是安全连接，可能的值有True,False和SSPI（SSPI和True是同义词）</td> </tr> </tbody> </table> <p>以上的参数是不分大小写的，例如uid，UID，Uid都表示连接的数据库用户</p> <p>Integrated Security参数用于本地windows验证登录时，其值应该设置为True，例如（"server=localhost;database=mydb;Integrated security=true"）</p> <h2>二、.net 数据库连接池超时问题</h2> <h3>（1）数据库Connection Pool 连接池是什么</h3> <p>每当程序需要读写数据库的时候。Connection.Open()会使用ConnectionString连接到数据库，数据库会为程序建立 一个连接，并且保持打开状态，此后程序就可以使用T-SQL语句来查询/更新数据库。当执行到Connection.Close()后，数据库就会关闭当 前的连接。</p> <p>但是如果我的程序需要不定时的打开和关闭连接，（比如说 ASP.Net 或是 Web Service ），例如当Http Request发送到服务器的时候、，我们需要打开Connection 然后使用Select* from Table 返回一个DataTable/DataSet给客户端/浏览器，然后关闭当前的Connection。那每次都Open/Close Connection 如此的频繁操作对于整个系统无疑就成了一种浪费。</p> <p>ADO.Net Team就给出了一个比较好地解决方法。将先前的Connection保存起来，当下一次需要打开连接的时候就将先前的Connection 交给下一个连接。这就是Connection Pool。</p> <h3>（2）数据库Connection Pool连接池的运行方式</h3> <ul> <li>1、当一个程序执行Connection.open()时候，ADO.net就需要判断，此连接是否支持Connection Pool (Pooling 默认为True)</li> </ul> <p>​ （1）、如果指定为False, ADO.net就与数据库之间创建一个连接，然后返回给程序。</p> <p>​ （2）、如果指定为 True，ADO.net就会根据ConnectString创建一个Connection Pool，然后向Connection Pool中填充Connection。填充多少个Connection由Min Pool Size (默认为0)属性来决定。例如如果指定为5，则ADO.net会一次与SQL数据库之间打开5个连接，然后将4个Connection，保存在 Connection Pool中，1个Connection返回给程序。</p> <ul> <li>2、当程序执行到Connection.close() 的时候。如果Pooling 为True，ADO.net 就把当前的Connection放到Connection Pool并且保持与数据库之间的连接。</li> </ul> <p>同时还会判断Connection Lifetime(默认为0)属性，0代表无限大，如果Connection存在的时间超过了Connection LifeTime，ADO.net就会关闭的Connection同时断开与数据库的连接，而不是重新保存到Connection Pool中。</p> <ul> <li>3、当下一次Connection.Open() 执行的时候，ADO.Net就会判断新的ConnectionString与之前保存在Connection Pool中的Connection的connectionString是否一致。</li> <li>4、 ADO.net需要判断当前的Connection Pool中是否有可以使用的Connection(没有被其他程序所占用)，如果没有的话，ADO.net就需要判断ConnectionString设 置的Max Pool Size （默认为100）</li> </ul> <p>​ （1）、如果Connection Pool中的所有Connection没有达到Max Pool Size，ADO.net则会再次连接数据库，创建一个连接，然后将Connection返回给程序。</p> <p>​ （2）、如果已经达到了 MaxPoolSize，ADO.net就不会再次创建任何新的连接，而是等待Connection Pool中被其他程序所占用的Connection释放，这个等待时间受SqlConnection.ConnectionTimeout（默认是15 秒）限制，也就是说如果时间超过了15秒，SqlConnection就会抛出超时错误。</p> <ul> <li>5、如果有可用的Connection，从Connection Pool 取出的Connection也不是直接就返回给程序，ADO.net还需要检查ConnectionString的ConnectionReset属性 (默认为True)是否需要对Connection 最一次reset。</li> </ul> <h3>（3）ASP.NET程序对max pool size的配置</h3> <p>在连接字符串中添加如下内容：</p> <div class="ay1code"> <pre class="brush:plain;">pooling=true;min pool size=5;max pool size=512;</pre> </div> <p>其中Max Pool Size如果未设置则默认为100，理论最大值为32767。最大连接数是连接池能申请的最大连接数，如果数据库连接请求超过此数，后面的数据库连接请求将被加入到等待队列中，这会影响之后的数据库操作。在等待队列中，默认等待与服务器的连接的时间为15秒。</p> <p>默认连接池大小一般是100。</p> <h3>（4）查看应用程序池占用数量</h3> <div class="ay1code"> <pre class="brush:sql;">select * from sysprocesses where dbid= db_id('数据库名')</pre> </div> <p>查询出来有几条数据就证明有几个连接数量。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24274.htm">郑州狗粮批发（郑州狗粮市场）</a></p>
+                                        <p>下一个：<a href="/news/article-24740.htm">宠物粮食生产厂家电话号码 宠物粮食生产厂家电话号码查询</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-vmess-node.htm" title="12月3日 | Vmess节点订阅每天更新19.5M/S免费节点订阅链接">12月3日 | Vmess节点订阅每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-subscribe-node.htm" title="11月15日 | Vmess节点订阅每天更新18.9M/S免费节点订阅链接">11月15日 | Vmess节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-18814.htm" title="北京宠爱国际动物医疗机构有限公司的发展状况（北京宠爱国际动物医院怎么样）">北京宠爱国际动物医疗机构有限公司的发展状况（北京宠爱国际动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-high-speed-nodes.htm" title="12月1日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接">12月1日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21970.htm" title="Nuxt3 rc.11 填坑 配置 element-plus">Nuxt3 rc.11 填坑 配置 element-plus</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-14-free-node-subscribe-links.htm" title="9月14日 | Vmess节点订阅每天更新18.5M/S免费节点订阅链接">9月14日 | Vmess节点订阅每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-vmess-windows.htm" title="9月4日 | Vmess节点订阅每天更新22M/S免费节点订阅链接">9月4日 | Vmess节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-high-speed-nodes.htm" title="11月25日 | Vmess节点订阅每天更新20.1M/S免费节点订阅链接">11月25日 | Vmess节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-vmess-windows.htm" title="9月22日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接">9月22日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-vmess-node.htm" title="10月19日 | Vmess节点订阅每天更新23M/S免费节点订阅链接">10月19日 | Vmess节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
