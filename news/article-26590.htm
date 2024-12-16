@@ -1,0 +1,245 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-26590.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>使用 Java 开发 Gradle 插件_在线工具</title>
+        <meta name="description" content="Gradle 插件代码可以在 build.gradle 中，buildSrc 项目中，以及独立的插件项目中编写。本文将介绍如何在一个独立的项目中使用 Java 语言编写 Gradle 插件，并发布到仓" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                                                        <span><a href="/">Free Vmess Node</a></span>
+                                                                    </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>使用 Java 开发 Gradle 插件_在线工具</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<p>Gradle 插件代码可以在 build.gradle 中，buildSrc 项目中，以及独立的插件项目中编写。本文将介绍如何在一个独立的项目中使用 Java 语言编写 Gradle 插件，并发布到仓库中。</p> <h2 id="1-创建项目">1. 创建项目</h2> <p>Gradle 插件项目和普通的 Java 项目没有什么不同，普通项目是基于其它三方包进行开发，而 Gradle 插件项目基于 Gradle 的 API 进行开发。</p> <p>基于 Gradle 创建一个 Java 项目，项目目录结构如下，和普通项目一样。示例项目：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Robothy/gradle-plugin-sample"  target="_blank"  rel="nofollow">https://github.com/Robothy/gradle-plugin-sample</a></p> <pre><code class="language-bash">gradle-plugin-sample | ├───build.gradle ├───settings.gradle └───src     ├───main     │   ├───java     │   └───resources     └───test         ├───java         └───resources </code></pre> <p>引入 Gradle API 相关的 jar 包。为了方便起见，可以通过 gradle 插件 java-gradle-plugin 来引入 Java 插件，引入 Gradle API 相关依赖以及生成插件相关的描述符。</p> <p>build.gradle</p> <pre><code class="language-java">plugins {     id 'java-gradle-plugin' }  group 'com.robothy' version '1.0-SNAPSHOT'  repositories {     mavenLocal()     mavenCentral() }  wrapper{     gradleVersion = '6.7' } </code></pre> <h2 id="2-动手开发">2. 动手开发</h2> <p>项目创建好之后，就可以开始动手开发了。从项目构建角度来看，Gradle 插件是一段可重用的构建逻辑，这段逻辑能够被应用到各个项目当中。更具体来说，Gradle 插件是一个实现了 org.gradle.api.Plugin 接口的类，它被 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:projects_and_tasks"  target="_blank"  rel="nofollow">Project</a> （可以认为是 build.gralde, 它本质是一个实现了 Project 接口的类）所引用。开发插件的本质就是往 build.gradle 中插入一段逻辑。</p> <pre><code class="language-java">void apply​(T target) </code></pre> <p>Plugin 是一个泛型接口，有一个抽象方法 apply，它的参数类型可以是 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.gradle.org/current/dsl/org.gradle.api.Project.html"  target="_blank"  rel="nofollow">Project</a>, <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html"  target="_blank"  rel="nofollow">Settings</a>, 或者 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.gradle.org/current/dsl/org.gradle.api.invocation.Gradle.html"  target="_blank"  rel="nofollow">Gradle</a>。</p> <ul> <li> <p>类型为 Project，插件可以应用于 build.gradle；</p> </li> <li> <p>类型为 Settings，插件可应用于 settings.gradle；</p> </li> <li> <p>类型为 Gradle, 插件可应用于 Gradle 初始化脚本。</p> </li> </ul> <p>在应用插件时，gradle 会创建一个插件类的实例，并调用 apply 方法。因此，插件的逻辑就是 apply 方法中的代码。</p> <p>一个独立的项目中可以有多个实现了 Plugin 接口的类，意味着一个项目可以包含多个插件。每一个插件都需要在 build.gradle 中添加相应的描述，java-gradle-plugin 会根据这些描述生成插件描述符（jar 包中的一个文件）。</p> <p>假设要在 gradle-plugin-sample 项目中创建两个插件 hello, goodbye，需要进行如下两个步骤：</p> <p>1）创建插件类</p> <p>HelloPlugin.java</p> <pre><code class="language-java">import org.gradle.api.Plugin; import org.gradle.api.Project;  public class HelloPlugin implements Plugin&lt;Project&gt; {     @Override     public void apply(Project project) {         System.out.println("Message from hello plugin.");     } } </code></pre> <p>GoodbyePlugin.java</p> <pre><code class="language-java">import org.gradle.api.Plugin; import org.gradle.api.Project;  public class GoodbyePlugin implements Plugin&lt;Project&gt; {     @Override     public void apply(Project project) {         System.out.println("Message from goodbye plugin.");     } } </code></pre> <p>2）在 build.gradle 中添加描述内容</p> <p>描述内容需要指定插件的 ID 和插件的入口类。</p> <pre><code class="language-groovy">gradlePlugin {     plugins {         helloPlugin {             id = 'com.robothy.hello'             implementationClass = 'com.robothy.HelloPlugin'         }         googbyePlugin{             id = 'com.robothy.goodbye'             implementationClass = 'com.robothy.GoodbyePlugin'         }     } } </code></pre> <p>完成上面步骤之后，一个简单的插件就算完成了开发，接下来就可以发布和使用了。</p> <h2 id="3-发布插件">3. 发布插件</h2> <p>插件可以发布到 Maven 仓库和 Gradle 官方插件门户。</p> <h3 id="31-发布到-maven-仓库">3.1 发布到 Maven 仓库</h3> <p>发布插件到 Maven 仓库和发布普通的 jar 包一样，需要用到 maven-publish 插件。要发布到远程 Maven 仓库可能需要提供认证信息，这里简单起见只发布到本地仓库。</p> <p>1）在 build.gradle 文件中添加 maven-publish 插件</p> <pre><code class="language-groovy">plugins {     id 'java-gradle-plugin'     id 'maven-publish' } </code></pre> <p>2）执行 <code>gradle publishToMavenLocal</code>，成功之后可以在 <code>~/.m2</code> 目录下找打发布的 jar 包。</p> <p>要使用发布到 Maven 仓库中的 Gradle 插件，需要先在 settings.gradle 中指定仓库。如下代码指定了插件仓库有本地 Maven 和 Gradle 插件门户。</p> <pre><code class="language-groovy">pluginManagement {     repositories {         mavenLocal()         gradlePluginPortal()     } } </code></pre> <h3 id="32-发布到-gradle-官方插件门户">3.2 发布到 Gradle 官方插件门户</h3> <p>我们平常使用的大部分插件来自于 Gradle 官方插件门户，开发人员注册一个 Gradle 账号之后可以将插件发布到门户，这样其他人就可以很方便地使用了。按照如下步骤发布插件，这里如果没有描述清楚可以移步 Gradle 官网文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://plugins.gradle.org/docs/submit"  target="_blank"  rel="nofollow">How do I add my plugin to the plugin portal?</a>。</p> <p>1）注册门户账户</p> <p>2）创建 API Key。注册好账户就能够看见了。</p> <p>3）将 API Key 添加到文件 <code>~/.gradle/gradle.properties</code></p> <p>4）使用插件发布插件 com.gradle.plugin-publish 发布插件（不是病句，只是有点绕 ????）</p> <p>将 com.gradle.plugin-publish 添加到插件项目 gradle-plugin-sample 的 build.gradle 中，然后添加插件的描述信息。</p> <pre><code class="language-groovy">pluginBundle {   website = 'http://www.gradle.org/'   vcsUrl = 'https://github.com/gradle/gradle'   description = 'Greetings from here!'   tags = ['greetings', 'salutations']    plugins {     greetingsPlugin {       // id='com.robothy.hello' 可以省略，因为在 gradlePlugin 配置块中已经有 id 信息了       displayName = 'Hello Plugin'     }   } } </code></pre> <p>5）使用 <code>gradle publishPlugins</code> 发布插件</p> <p>如果插件信息描述正确，执行 puhlishPlugins 任务之后会打印出待审核的信息，之后就是等待了（本人发布的插件 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://plugins.gradle.org/plugin/com.robothy.cn-repo"  target="_blank"  rel="nofollow">com.robothy.cn-repo</a> 经过了四五个小时就审核通过了）。</p> <pre><code>Publishing plugin com.robothy.cn-repo version 1.0 Thank you. Your new plugin com.robothy.cn-repo has been submitted for approval by Gradle engineers. The request should be processed within the next few days, at which point you will be contacted via email. </code></pre> <h2 id="4-更多">4. 更多</h2> <h3 id="41-在插件中添加任务">4.1 在插件中添加任务</h3> <p>先自定义一个 Gradle 任务类 SayHelloTask，该任务的行为是简答的打印固定的字符串。自定义任务需要继承 DefaultTask。</p> <pre><code class="language-java">public class SayHelloTask {     @TaskAction     public void hello() {         System.out.println("Hello, World!");     } } </code></pre> <p>然后通过 project 往项目中注册一个 SayHelloTask 的实例，任务名为 task。</p> <pre><code class="language-java">public class HelloPlugin implements Plugin&lt;Project&gt; {     @Override     public void apply(Project project) {         System.out.println("Message from hello plugin.");         project.getTasks().register("hello", SayHelloTask.class);     } } </code></pre> <p>当然，也可以在使用 HelloPlugin 插件的 build.gradle 中注册任务。</p> <pre><code class="language-groovy">task hello(type: com.robothy.SayHelloTask) </code></pre> <p>重新发布插件，执行下面命令时控制台会打印出 "Hello, World!"。</p> <pre><code class="language-java">gradle hello </code></pre> <h3 id="42-添加扩展">4.2 添加扩展</h3> <p>Gradle 插件可以往 project 中注册扩展，开发人员可以通过扩展设置一些参数值，以供其它的 Gradle Task 使用。假设我们希望在 build.gradle 中添加如下配置信息。</p> <pre><code>user {     name = 'Robothy'     country = 'China' } </code></pre> <p>首先，创建一个配置信息接口，接口中只包含 getter 抽象方法。需要注意的是，返回的类型为 Property<string>，并非直接返回 String。配置信息不需要创建为 Java 类，Gradle 在运行时会通过动态代理的方式自动往代理对象中注入值。</string></p> <pre><code class="language-java">public interface User {     Property&lt;String&gt; getName();     Property&lt;String&gt; getCountry(); } </code></pre> <p>然后插件就可以往 project 中添加一个扩展了。</p> <pre><code class="language-java">project.getExtensions().add("user", User.class); </code></pre> <p>重新发布插件，此时引入了插件的项目就可以在 builde.gradle 中添加本小节开头描述的配置块了。</p> <p>Gradle 任务可以通过如下方式访问到这些配置信息。</p> <pre><code class="language-java">User user = (User) (project.getExtensions().getByName("user")); </code></pre> <h2 id="5-小结">5. 小结</h2> <p>本文主要介绍了如何使用纯 Java 语言在一个独立的项目中编写 Gradle 插件，插件主要通过通过传入的 project 参数访问项目，往项目的构建生命周期中插入一些逻辑或者添加配置信息。插件可以发布到私有的 Maven 仓库，也可以发布到 Gradle 插件门户。插件项目中还可以很好地封装一些 Gradle Task，定义一些配置类型。</p> <h2 id="6-参考内容">6. 参考内容</h2> <p>[1] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:projects_and_tasks"  target="_blank"  rel="nofollow">Build Script Basics</a></p> <p>[2] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://plugins.gradle.org/docs/submit"  target="_blank"  rel="nofollow">How do I add my plugin to the plugin portal?</a></p> <p>[3] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.gradle.org/current/userguide/custom_plugins.html#note_for_plugins_published_without_java_gradle_plugin"  target="_blank"  rel="nofollow">Developing Custom Gradle Plugins</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-26110.htm">河南兽药品牌排行（河南兽药品牌排行前十）</a></p>
+                                        <p>下一个：<a href="/news/article-26591.htm">成都华西动物医院怎么样（成都华西动物医院怎么样啊）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-subscribe-node.htm" title="10月1日 | Vmess节点订阅每天更新20.7M/S免费节点订阅链接">10月1日 | Vmess节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-vmess-node.htm" title="10月12日 | Vmess节点订阅每天更新20M/S免费节点订阅链接">10月12日 | Vmess节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20597.htm" title="广州狗狗领养中心（广州犬只领养中心）">广州狗狗领养中心（广州犬只领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-23359.htm" title="SpringSecurity核心过滤器-CsrfFilter">SpringSecurity核心过滤器-CsrfFilter</a></li>
+                        <li class="py-2"><a href="/news/article-25205.htm" title="宠物美容师平均工资（宠物美容师平均工资多少钱）">宠物美容师平均工资（宠物美容师平均工资多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-vmess-node.htm" title="10月19日 | Vmess节点订阅每天更新23M/S免费节点订阅链接">10月19日 | Vmess节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-node-subscribe.htm" title="12月4日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接">12月4日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20140.htm" title="中国兽药十大名牌厂家排名百度百科知乎 中国兽药十大名牌厂家排名百度百科知乎">中国兽药十大名牌厂家排名百度百科知乎 中国兽药十大名牌厂家排名百度百科知乎</a></li>
+                        <li class="py-2"><a href="/news/article-18814.htm" title="北京宠爱国际动物医疗机构有限公司的发展状况（北京宠爱国际动物医院怎么样）">北京宠爱国际动物医疗机构有限公司的发展状况（北京宠爱国际动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-vmess-node.htm" title="11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

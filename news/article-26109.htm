@@ -1,0 +1,245 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-26109.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue中同时监听多个参数的实现_vue.js</title>
+        <meta name="description" content="目录  如何同时监听多个参数  data中定义一个对象 完整代码  vue事件监听,条件判断  事件监听 v-on 条件判断     如何同时监听多个参数 vue使用watch同时监听多个参数，其中有" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                                                        <span><a href="/">Free Vmess Node</a></span>
+                                                                    </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>vue中同时监听多个参数的实现_vue.js</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">如何同时监听多个参数</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">data中定义一个对象</a></li> <li><a href="#_lab2_0_1" rel="nofollow">完整代码</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue事件监听,条件判断</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">事件监听 v-on</a></li> <li><a href="#_lab2_1_3" rel="nofollow">条件判断</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>如何同时监听多个参数</h2> <p>vue使用watch同时监听多个参数，其中有任意一个参数发生改变时，都会被监听到需要使用到计算属性computed与监听watch</p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>data中定义一个对象</h3> <div class="ay1code"> <pre class="brush:js;">data(){      return{          obj:{              name:'xpf',              gender:'male',              age:24      }      }  }</pre> </div> <ul> <li> <code>computed</code>中：将需要监听的参数放入一个新变量中</li> </ul> <div class="ay1code"> <pre class="brush:js;">computed:{      'newParams':function(){          const {name,age} = this.obj          return {name,age}      }      },</pre> </div> <ul> <li> <code>watch</code>中：监听新的变量</li> </ul> <div class="ay1code"> <pre class="brush:js;">watch:{      newParams:function(){          alert(1)      }  },</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>完整代码</h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html lang="en"&gt;  &lt;head&gt;      &lt;meta charset="UTF-8"&gt;      &lt;title&gt;watch同时监听多个属性&lt;/title&gt;      &lt;script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"&gt;&lt;/script&gt;  &lt;/head&gt;  &lt;body&gt;      &lt;div id="app"&gt;          &lt;div @click="changeObj"&gt;点我&lt;/div&gt;      &lt;/div&gt;          &lt;script&gt;          new Vue({              el:'#app',              data(){                  return{                      obj:{                          name:'xpf',                          gender:'male',                          age:24                      }                  }              },              computed:{                  'newParams':function(){                      const {name,age} = this.obj                      return {name,age}                  }                  },              watch:{                  newParams:function(){                      alert(1)                  }              },              methods:{                  changeObj(){                      // this.obj.name = 'xx'                      this.obj.age = 21                  }              }          })      &lt;/script&gt;  &lt;/body&gt;  &lt;/html&gt;</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue事件监听,条件判断</h2> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>事件监听 v-on</h3> <p>语法糖@</p> <p><strong>1. 基本的使用法法</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">    &lt;div id="add"&gt;          点击次数{{counter}}           &lt;button @click = "add"&gt;+&lt;/button&gt; &lt;!--v-on:click = "" 语法糖  --&gt;          &lt;button @click = "dec"&gt;-&lt;/button&gt;      &lt;/div&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">    &lt;script src="../js/vue.js"&gt;&lt;/script&gt;      &lt;script&gt;          const add = new Vue({              el:'#add',              data:{                  counter:0              },              methods:{                  add:function(){                      console.log('添加了');                      this.counter++                  },                  dec:function(){                      console.log('减少了');                      this.counter--                  }              }          })        &lt;/script&gt;</pre> </div> <p><strong>2. 事件监听带参数的使用方法</strong></p> <p>不带参数，写函数时，小括号可写可不写</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click = "one"&gt;按钮1&lt;/button&gt;  &lt;button @click = "one()"&gt;按钮2&lt;/button&gt;</pre> </div> <p>带有参数时，写函数时，小括号要写，传进的参数也要写</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click = "two"&gt;按钮2&lt;/button&gt; &lt;!-- 默认输出 浏览器生产的event事件对象 --&gt;  &lt;button @click = "two()"&gt;按钮3&lt;/button&gt; &lt;!-- 输出 undefind --&gt;  &lt;button @click = "two(123)"&gt;按钮4&lt;/button&gt;  &lt;!-- 输出 123  --&gt;</pre> </div> <p>即带参数有带event</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click = "three(123,$event) "&gt;按钮5&lt;/button&gt;</pre> </div> <p>在小括号里添加$event可即添加参数又添加event事假</p> <p><strong>3.事件对象的修饰符</strong></p> <ul> <li> <code>.stop</code>相当于事件对象的stopPropagaton，阻止冒泡事件</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;div @click = "one"&gt;父亲        &lt;button @click.stop = "two"&gt;儿子&lt;/button&gt;      &lt;/div&gt;</pre> </div> <ul> <li> <code>.prevent</code>阻止默认事件 preventDefault</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;">&lt;a href="https://www.baidu.com/"   @click.prevent = "two"&gt;百度一下&lt;/a&gt;</pre> </div> <ul> <li> <code>keyup</code>监听某个键盘键帽</li> <li> <code>.enter</code>只监听回车键</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;">&lt;input type="text" @keyup= "two"&gt;  &lt;input type="text" @keyup.enter = "two"&gt;</pre> </div> <ul> <li> <code>.once</code>只监听一次</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click.once = "two"&gt;按钮&lt;/button&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>条件判断</h3> <p><strong>1.v-if的基本使用</strong></p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;div id="add"&gt;      &lt;div v-if = "true"&gt;{{message}}&lt;/div&gt;      &lt;div v-if = "false"&gt;{{name}}&lt;/div&gt;         &lt;div v-if = "isShow"&gt;        &lt;h2&gt;ccc&lt;/h2&gt;        &lt;h2&gt;ccc&lt;/h2&gt;        &lt;h2&gt;ccc&lt;/h2&gt;        &lt;h2&gt;ccc&lt;/h2&gt;      &lt;/div&gt;</pre> </div> <p>为true显示，为false隐藏，可设置一个变量isShow来控制</p> <p><strong>2.v-if和v-else使用</strong></p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;div id="add"&gt;      &lt;h2 v-if = "isShow"&gt;我是你爸爸&lt;/h2&gt;      &lt;h2 v-else&gt;不，我才是你爸爸&lt;/h2&gt;    &lt;/div&gt;</pre> </div> <p>两者只能显示一个当变量isShow为true时，else隐藏，同理相反</p> <p><strong>3.v-if和v-else-if和v-lese使用</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;h2 v-if = "message &gt;=90"&gt; 优秀 &lt;/h2&gt;   &lt;h2 v-else-if = "message &gt;=80"&gt; 良好 &lt;/h2&gt;   &lt;h2 v-else-if = "message &gt;=70"&gt; 及格 &lt;/h2&gt;   &lt;h2 v-else&gt; 不及格 &lt;/h2&gt;</pre> </div> <p>3个结合可读性差，不建议</p> <p>可在computed里封装一个函数</p> <div class="ay1code"> <pre class="brush:js;"> computed: {          result(){            let num = " "            if (this.message &gt;=90) {              num = '优秀'            }else if(this.message &gt;= 80){              num = '良好'            }else{              num = "不及格"            }            return num          }        }</pre> </div> <p>在调用，可读性较好 </p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25662.htm">dell设置ssd启动（dell设置从ssd启动）</a></p>
+                                        <p>下一个：<a href="/news/article-26110.htm">河南兽药品牌排行（河南兽药品牌排行前十）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-node-subscribe.htm" title="8月12日 | Vmess节点订阅每天更新19.7M/S免费节点订阅链接">8月12日 | Vmess节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-subscribe-node.htm" title="11月4日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接">11月4日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23357.htm" title="Spark Streaming 实战 日志分析数据清洗+统计访问量">Spark Streaming 实战 日志分析数据清洗+统计访问量</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-subscribe-node.htm" title="12月15日 | Vmess节点订阅每天更新21.1M/S免费节点订阅链接">12月15日 | Vmess节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-latest-vmess-node.htm" title="10月11日 | Vmess节点订阅每天更新20.3M/S免费节点订阅链接">10月11日 | Vmess节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-vmess-node.htm" title="9月24日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接">9月24日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-19-free-subscribe-node.htm" title="8月19日 | Vmess节点订阅每天更新22.4M/S免费节点订阅链接">8月19日 | Vmess节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-8-node-share-links.htm" title="8月8日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">8月8日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share-links.htm" title="11月26日 | Vmess节点订阅每天更新22.4M/S免费节点订阅链接">11月26日 | Vmess节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-latest-vmess-node.htm" title="8月16日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接">8月16日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
