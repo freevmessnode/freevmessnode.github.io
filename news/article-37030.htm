@@ -2,12 +2,11 @@
 <html class="no-js" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://freevmessnode.github.io" />
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-37030.htm" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>隐私申明 - FreeVmessNode免费订阅官网</title>
-        <meta name="keywords" content="隐私申明 - FreeVmessNode免费订阅官网" />
-        <meta name="description" content="隐私申明 - FreeVmessNode免费订阅官网" />
+    <title>Golang redis(六)redigo 发布订阅模式</title>
+        <meta name="description" content="发布订阅 使用Send，Flush和Receive方法实现Pub / Sub c.Send("SUBSCRIBE", "example") c.Flush() for {     reply, err" />
         <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -37,7 +36,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="newly_discovered_nodes">
+<body data-page="detail">
         <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -100,9 +99,9 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center pt-50">
-                                <h1>隐私申明</h1>
+                                <h1>Golang redis(六)redigo 发布订阅模式</h1>
                                 <p>
-                                    <a href="/">首页</a> / <span>隐私申明</span>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
                                 </p>
                             </div>
                         </div>
@@ -122,52 +121,13 @@
             <div class="container ">
                 <div class="row">
                     <div class="col-md-9">
-                        <p>本平台专注于为用户提供V2ray、Clash等免费节点订阅服务，我们深知用户隐私的重要性，并致力于保护用户的个人信息和隐私安全。本隐私声明旨在明确告知用户本平台如何收集、使用、存储和保护用户的个人信息。</p>
-<p>一、信息收集</p>
-<ol>
-    <li>
-        <p><strong>用户主动提供的信息</strong>：当用户在本平台注册、使用服务或参与特定活动时，可能会主动提供个人信息，如姓名、邮箱地址等。这些信息将仅用于提供服务或活动的目的，并在用户明确同意的情况下进行收集。</p>
-    </li>
-    <li>
-        <p><strong>服务使用数据</strong>：为了优化用户体验和服务质量，本平台可能会自动收集用户在使用服务过程中产生的数据，如访问记录、节点使用情况等。这些数据将用于分析服务使用情况，以便我们持续改进服务。</p>
-    </li>
-</ol>
-<p>二、信息使用</p>
-<ol>
-    <li>
-        <p><strong>提供服务</strong>：本平台将使用收集到的信息来提供用户所需的服务，包括但不限于节点订阅、服务更新通知等。</p>
-    </li>
-    <li>
-        <p><strong>数据分析</strong>：我们可能会对收集到的数据进行分析，以了解用户的使用习惯和需求，从而改进和优化服务。</p>
-    </li>
-    <li>
-        <p><strong>法律合规</strong>：在必要时，我们可能会根据法律法规的要求，向相关部门提供用户的个人信息，以配合执法或调查工作。</p>
-    </li>
-</ol>
-<p>三、信息存储与保护</p>
-<ol>
-    <li>
-        <p><strong>信息安全</strong>：本平台将采取必要的技术和管理措施，确保用户个人信息的安全。我们会对存储的数据进行加密处理，并定期进行安全检查和漏洞修复。</p>
-    </li>
-    <li>
-        <p><strong>信息存储期限</strong>：我们将根据服务需求和相关法律法规的要求，合理确定用户个人信息的存储期限。一旦超出存储期限，我们将对个人信息进行删除或匿名化处理。</p>
-    </li>
-</ol>
-<p>四、用户权利</p>
-<ol>
-    <li>
-        <p><strong>访问与更正</strong>：用户有权访问自己的个人信息，并对其进行更正。用户可以通过本平台提供的联系方式，申请查看或修改自己的个人信息。</p>
-    </li>
-    <li>
-        <p><strong>删除</strong>：在用户停止使用服务或注销账户后，我们将根据用户的请求，删除或匿名化处理其个人信息。</p>
-    </li>
-    <li>
-        <p><strong>投诉与举报</strong>：如果用户认为本平台在处理个人信息方面存在违法行为，可以通过本平台提供的联系方式进行投诉或举报。</p>
-    </li>
-</ol>
-<p>五、隐私声明的更新与修改</p>
-<p>本平台有权根据实际情况和法律法规的变化，对本隐私声明进行更新和修改。任何对隐私声明的修改都将通过本平台公告或电子邮件等方式通知用户。用户在使用服务时，应定期查看隐私声明，以了解最新的个人信息保护措施。</p>
-                    </div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <h4> <a id="_0" rel="nofollow"></a>发布订阅</h4> <p>使用Send，Flush和Receive方法实现Pub / Sub</p> <pre><code>c.Send("SUBSCRIBE", "example") c.Flush() for {     reply, err := c.Receive()     if err != nil {         return err     }     // process pushed message } </code></pre> <p>PubSubConn封装Conn以实现订阅者提供简便方法。Subscribe，PSubscribe，Unsubscribe和PUnsubscribe方法发送和刷新订阅。receive方法将推送的消息转换对应的类型</p> <pre><code>psc := redis.PubSubConn{Conn: c} psc.Subscribe("example") for {     switch v := psc.Receive().(type) {     case redis.Message:         fmt.Printf("%s: message: %s\n", v.Channel, v.Data)     case redis.Subscription:         fmt.Printf("%s: %s %d\n", v.Channel, v.Kind, v.Count)     case error:         return v     } } </code></pre> <h4> <a id="PubSubConn_37" rel="nofollow"></a>PubSubConn</h4> <p>定义</p> <pre><code>type PubSubConn struct {     Conn Conn } </code></pre> <p>提供的方法：</p> <p>1.Close 关闭连接<br /><code>func (c PubSubConn) Close() error</code></p> <p>2.PSubscribe PSubscribe发布<br /><code>func (c PubSubConn) PSubscribe(channel ...interface{}) error</code></p> <p>3.PUnsubscribe 取消发布， 如果没有给定， 则取消所有<br /><code>func (c PubSubConn) PUnsubscribe(channel ...interface{}) error</code></p> <p>4.Ping 指定的数据向服务器发送PING 调用此方法时，连接必须至少订阅一个通道或模式<br /><code>func (c PubSubConn) Ping(data string) error</code></p> <p>5.Receive 获取消息<br /><code>func (c PubSubConn) Receive() interface{}</code></p> <p>6.ReceiveWithTimeout 带有超时时间的获取消息函数<br /><code>func (c PubSubConn) ReceiveWithTimeout(timeout time.Duration) interface{}</code></p> <p>7.Subscribe 订阅<br /><code>func (c PubSubConn) Subscribe(channel ...interface{}) error</code></p> <p>8.Unsubscribe 取消订阅<br /><code>func (c PubSubConn) Unsubscribe(channel ...interface{}) error</code></p> <p>示例程序：</p> <pre><code>package main  import (    "context"    "fmt"    "time"     "github.com/gomodule/redigo/redis" )  // listenPubSubChannels listens for messages on Redis pubsub channels. The // onStart function is called after the channels are subscribed. The onMessage // function is called for each message. func listenPubSubChannels(ctx context.Context, redisServerAddr string,    onStart func() error,    onMessage func(channel string, data []byte) error,    channels ...string) error {    // A ping is set to the server with this period to test for the health of    // the connection and server.    const healthCheckPeriod = time.Minute     c, err := redis.Dial("tcp", redisServerAddr,       // Read timeout on server should be greater than ping period.       redis.DialReadTimeout(healthCheckPeriod+10*time.Second),       redis.DialWriteTimeout(10*time.Second))    if err != nil {       return err    }    defer c.Close()     psc := redis.PubSubConn{Conn: c}     if err := psc.Subscribe(redis.Args{}.AddFlat(channels)...); err != nil {       return err    }     done := make(chan error, 1)     // Start a goroutine to receive notifications from the server.    go func() {       for {          switch n := psc.Receive().(type) {          case error:             done &lt;- n             return          case redis.Message:             if err := onMessage(n.Channel, n.Data); err != nil {                done &lt;- err                return             }          case redis.Subscription:             switch n.Count {             case len(channels):                // Notify application when all channels are subscribed.                if err := onStart(); err != nil {                   done &lt;- err                   return                }             case 0:                // Return from the goroutine when all channels are unsubscribed.                done &lt;- nil                return             }          }       }    }()     ticker := time.NewTicker(healthCheckPeriod)    defer ticker.Stop() loop:    for err == nil {       select {       case &lt;-ticker.C:          // Send ping to test health of connection and server. If          // corresponding pong is not received, then receive on the          // connection will timeout and the receive goroutine will exit.          if err = psc.Ping(""); err != nil {             break loop          }       case &lt;-ctx.Done():          break loop       case err := &lt;-done:          // Return error from the receive goroutine.          return err       }    }     // Signal the receiving goroutine to exit by unsubscribing from all channels.    psc.Unsubscribe()     // Wait for goroutine to complete.    return &lt;-done }  func publish() {    c, err := redis.Dial("tcp", "127.0.0.1:6379")    if err != nil {       fmt.Println(err)       return    }    defer c.Close()     c.Do("PUBLISH", "c1", "hello")    c.Do("PUBLISH", "c2", "world")    c.Do("PUBLISH", "c1", "goodbye") }  // This example shows how receive pubsub notifications with cancelation and // health checks. func main() {    redisServerAddr := "127.0.0.1:6379"     ctx, cancel := context.WithCancel(context.Background())     err := listenPubSubChannels(ctx,       redisServerAddr,       func() error {          // The start callback is a good place to backfill missed          // notifications. For the purpose of this example, a goroutine is          // started to send notifications.          go publish()          return nil       },       func(channel string, message []byte) error {          fmt.Printf("channel: %s, message: %s\n", channel, message)           // For the purpose of this example, cancel the listener's context          // after receiving last message sent by publish().          if string(message) == "goodbye" {             cancel()          }          return nil       },       "c1", "c2")     if err != nil {       fmt.Println(err)       return    }  } </code></pre> <p>输出：</p> <pre><code>channel: c1, message: hello channel: c2, message: world channel: c1, message: goodbye </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36540.htm">动物医院需要什么设备（动物医院需要几个兽医资格证）</a></p>
+                                        <p>下一个：<a href="/news/article-37031.htm">动物疫苗注射注意事项及禁忌有哪些 动物疫苗注射注意事项及禁忌有哪些呢</a></p>
+                                    </div>
+                                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -175,16 +135,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21055.htm" title="动物疫苗管理法律法规最新版本 动物疫苗管理法律法规最新版本是什么">动物疫苗管理法律法规最新版本 动物疫苗管理法律法规最新版本是什么</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-subscribe-node.htm" title="11月30日 | Vmess节点订阅每天更新22.8M/S免费节点订阅链接">11月30日 | Vmess节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-18815.htm" title="安泰动物诊所怎么样 安泰动物诊所怎么样啊">安泰动物诊所怎么样 安泰动物诊所怎么样啊</a></li>
+                        <li class="py-2"><a href="/news/article-23813.htm" title="一只跳蚤一晚上能咬多少包（跳蚤咬了一般多久自愈）">一只跳蚤一晚上能咬多少包（跳蚤咬了一般多久自愈）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe.htm" title="12月7日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接">12月7日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31791.htm" title="Python用re模块实现简易tokenizer_在线工具">Python用re模块实现简易tokenizer_在线工具</a></li>
                         <li class="py-2"><a href="/news/article-19225.htm" title="狗狗舔人会传染寄生虫吗（小狗驱虫几天排干净虫）">狗狗舔人会传染寄生虫吗（小狗驱虫几天排干净虫）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-high-speed-nodes.htm" title="12月1日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接">12月1日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-node-share-links.htm" title="11月3日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接">11月3日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-32257.htm" title="猫三联加狂犬疫苗要打多久才有效（猫三联加狂犬疫苗多少钱）">猫三联加狂犬疫苗要打多久才有效（猫三联加狂犬疫苗多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-vmess-node.htm" title="11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-vmess-node-github.htm" title="10月13日 | Vmess节点订阅每天更新20.8M/S免费节点订阅链接">10月13日 | Vmess节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-vmess-node.htm" title="10月18日 | Vmess节点订阅每天更新19.5M/S免费节点订阅链接">10月18日 | Vmess节点订阅每天更新19.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share.htm" title="12月10日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接">12月10日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-34152.htm" title="Antd 动态显示 Upload 已上传文件">Antd 动态显示 Upload 已上传文件</a></li>
+                        <li class="py-2"><a href="/news/article-25662.htm" title="dell设置ssd启动（dell设置从ssd启动）">dell设置ssd启动（dell设置从ssd启动）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-vmess-node-github.htm" title="10月30日 | Vmess节点订阅每天更新18.4M/S免费节点订阅链接">10月30日 | Vmess节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-vmess-node.htm" title="10月15日 | Vmess节点订阅每天更新18.6M/S免费节点订阅链接">10月15日 | Vmess节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe-links.htm" title="12月12日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接">12月12日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -287,17 +247,6 @@
     <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
     <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
     <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
-    <script>
-    $(function() {
-        $('.js_to').click(function() {
-            var url = $(this).data('url');
-            var code = $(this).data('code');
-            url += code;
-
-            window.open(url);
-        })
-    });
-    </script>
 </body>
 
 </html>
