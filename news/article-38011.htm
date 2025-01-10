@@ -125,6 +125,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3></h3> <ul> <li><a href="#_3" rel="nofollow">前言</a></li> <li><a href="#0x1_GIT__6" rel="nofollow">0x1 GIT 标签常用指令</a></li> <li><a href="#0x2__20" rel="nofollow">0x2 轻量标签</a></li> <li><a href="#0x3__26" rel="nofollow">0x3 附注标签</a></li> <li><a href="#0x4__32" rel="nofollow">0x4 远程仓库中的标签</a></li> </ul> </div> <hr/> </h1> <p>在我们开发的过程中，可能经过多次 commit 提交才会确定一个版本，那么除了用 commit comments 来标识一次提交记录，还有没有什么更好的办法呢？GIT 为我们提供了标签这个功能，使用标签可以对某一次提交记录做上一个小标记，就像我们看书的时候，看到很有意思想要做个记号，可以用小的标签纸贴在那一页的边上，这让我们以后可以更方便的索引。</p> <hr/> </h1> <p>GIT 中的标签分为两种，一种是<strong>轻量标签</strong>（lightweight tag），一种是<strong>附注标签</strong>（annotated tag）。以下是一些常用的与标签相关的命令：</p> <ul> <li><code>git tag &lt;lightweght_name&gt;</code>：为当前分支所在的提交记录打上轻量标签。</li> <li><code>git tag &lt;lightweght_name&gt; &lt;commit SHA-1 value&gt;</code>：为某次具体的提交记录打上轻量标签。</li> <li><code>git tag -a &lt;anotated_name&gt; -m &lt;tag_message&gt;</code>：为当前分支所在的提交记录打上附注标签。</li> <li><code>git tag</code>：列出所有的标签名。</li> <li><code>git tag -d &lt;tag_name&gt;</code>：删除某个标签，本质上就是移除<strong>.git/refs/tags/</strong> 中对应的文件。</li> <li><code>git show &lt;tag_name&gt;</code>：显示标签对应提交记录的具体信息。</li> <li><code>git push &lt;remote&gt; &lt;tag_name&gt;</code>：推送某个标签到远程仓库。</li> <li><code>git push &lt;remote&gt; --tags</code>：推送所有标签到远程仓库。</li> <li><code>git push &lt;remote&gt; --delete &lt;tag_name&gt;</code>：删除远程仓库中的某个标签。</li> </ul> <blockquote> <p>[注]：标签与分支不相关。</p> </blockquote> <hr/> </h1> <p>轻量标签的创建十分简单，使用命令<code>git tag &lt;lightweight_name&gt;</code> 则会为当前所在的提交记录打上一个轻量标签。那么这个命令会发生什么呢？其实很简单，在使用这个命令后，会在<strong>.git/refs/tags/</strong> 目录下生成一个以<code>&lt;lightweight name&gt;</code> 为名字的文件，文件中存放了标签所对应提交记录的 commit 对象的 SHA-1 值。如下图所示：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/9bfb72bc744d04d2f3f135c1245fbf3c.jpg" alt="GIT 中如何打标签（git tag）"><br /> 假设我想为上述三个提交记录中的第一次提交打上版本 0 的标签，也是很容易做到的，同时使用<code>git log</code> 命令时也会显示出标签的名称：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/78177554de3ede2bac6d75f5895b8aeb.jpg" alt="GIT 中如何打标签（git tag）"></p> <hr/> </h1> <p>创建附注标签也非常简单，只要加上<code>-a</code> 选项即可。同时还可以通过<code>-m</code> 选项指定一条存储在标签中的信息，如果没有指定则 GIT 会打开编辑器要求你输入。假如我们为当前的提交记录打上一个附注标签，可以查看标签如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/ed1541f10a134f242063062a8e148b30.jpg" alt="GIT 中如何打标签（git tag）"><br /><strong>附注标签同样也在 .git/refs/tags/ 目录下生成对应的文件，但是这个文件中不再存储该标签对应的 commit 对象的 SHA-1 值，而是存放了一个称为<font color="red"> tag</font>对象的 SHA-1 值，这个 tag 对象中就存储了与这个附注标签相关的信息（包括打标签者的名字、电子邮件地址、日期时间、一个标签信息）和这个标签所对应的 commit 对象的 SHA-1 值。</strong> 我们可以查看如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/34b40a82caa3c8d6a79a2a16db513270.jpg" alt="GIT 中如何打标签（git tag）"></p> <hr/> </h1> <p>我们想想标签文件所在的文件夹和其中保存的信息，是不是觉得其和分支很像？这使得他也有一个特点，就是在我们使用<code>git push</code> 命令推送某个分支的时候，标签并不会被推送到远程仓库，<strong>所以我们必须显式的推送标签到远程仓库</strong>。</p> <p>使用下面两种命令则可以推送标签到远程仓库：</p> <ul> <li><code>git push &lt;remote&gt; &lt;tag_name&gt;</code>：推送某个标签到远程仓库。</li> <li><code>git push &lt;remote&gt; --tags</code>：推送所有标签到远程仓库。</li> </ul> <p>同样，在删除本地的标签后，要想删除远程仓库的标签，也必须使用的显式的命令：</p> <ul> <li><code>git push &lt;remote&gt; --delete &lt;tag_name&gt;</code>：删除远程仓库中的某个标签。</li> <li><code>git push &lt;remote&gt; :refs/tags/&lt;tagname&gt;</code>：删除远程仓库某个标签的等价方式，相当于将冒号前面的空值推送到远程标签名，从而高效地删除它。</li> </ul> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-38010.htm">tf.train.latest_checkpoint()报错，路径错误</a></p>
+                                        <p>下一个：<a href="/news/article-38499.htm">宠物猫打过疫苗咬破皮要打针吗（宠物猫打过疫苗咬破皮要打针吗要打几针）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -134,16 +135,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe-links.htm" title="11月12日 | Vmess节点订阅每天更新21.7M/S免费节点订阅链接">11月12日 | Vmess节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-38010.htm" title="tf.train.latest_checkpoint()报错，路径错误">tf.train.latest_checkpoint()报错，路径错误</a></li>
-                        <li class="py-2"><a href="/news/article-31791.htm" title="Python用re模块实现简易tokenizer_在线工具">Python用re模块实现简易tokenizer_在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-24740.htm" title="宠物粮食生产厂家电话号码 宠物粮食生产厂家电话号码查询">宠物粮食生产厂家电话号码 宠物粮食生产厂家电话号码查询</a></li>
-                        <li class="py-2"><a href="/news/article-37508.htm" title="生物颗粒锅炉（生物颗粒锅炉厂家）">生物颗粒锅炉（生物颗粒锅炉厂家）</a></li>
-                        <li class="py-2"><a href="/news/article-35549.htm" title="最便宜的宠物猫多少钱?（最便宜的一只猫多少钱）">最便宜的宠物猫多少钱?（最便宜的一只猫多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-21054.htm" title="Pytorch中的Conv1d()和Conv2d()函数">Pytorch中的Conv1d()和Conv2d()函数</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-high-speed-nodes.htm" title="10月27日 | Vmess节点订阅每天更新18.7M/S免费节点订阅链接">10月27日 | Vmess节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-20-node-share.htm" title="11月20日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接">11月20日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22887.htm" title="同城免费领养宠物诈骗电话 同城免费领养宠物诈骗电话号码">同城免费领养宠物诈骗电话 同城免费领养宠物诈骗电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-18814.htm" title="北京宠爱国际动物医疗机构有限公司的发展状况（北京宠爱国际动物医院怎么样）">北京宠爱国际动物医疗机构有限公司的发展状况（北京宠爱国际动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-27523.htm" title="动物接种疫苗的好处有哪些 动物接种疫苗的好处有哪些呢">动物接种疫苗的好处有哪些 动物接种疫苗的好处有哪些呢</a></li>
+                        <li class="py-2"><a href="/news/article-36072.htm" title="公务员国考2023报名时间（202年国考公务员报考和考试时间）">公务员国考2023报名时间（202年国考公务员报考和考试时间）</a></li>
                         <li class="py-2"><a href="/news/article-24739.htm" title=".Net连接数据库的方式详解_实用技巧">.Net连接数据库的方式详解_实用技巧</a></li>
+                        <li class="py-2"><a href="/news/article-33195.htm" title="关于Windows系列密码抓取">关于Windows系列密码抓取</a></li>
+                        <li class="py-2"><a href="/news/article-25662.htm" title="dell设置ssd启动（dell设置从ssd启动）">dell设置ssd启动（dell设置从ssd启动）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share.htm" title="11月1日 | Vmess节点订阅每天更新19.2M/S免费节点订阅链接">11月1日 | Vmess节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31227.htm" title="动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）">动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-vmess-node.htm" title="12月26日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接">12月26日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -155,7 +156,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
