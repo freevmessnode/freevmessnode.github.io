@@ -1,0 +1,263 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-42465.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vue结合ElementUI上传Base64编码后的图片实例_vue.js</title>
+        <meta name="description" content="目录  ElementUI上传Base64编码后的图片  安装ElementUI 按需引入(当然如果需要你也可以全部引入) 上传实现   ElementUI把上传的图片转为Base64     Ele" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-42465.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="Vue结合ElementUI上传Base64编码后的图片实例_vue.js" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/ef2cb3306362fd8e016bd38c9265be77.webp" />
+        <meta property="og:release_date" content="2025-01-18T07:14:59" />
+    <meta property="og:updated_time" content="2025-01-18T07:14:59" />
+        <meta property="og:description" content="目录  ElementUI上传Base64编码后的图片  安装ElementUI 按需引入(当然如果需要你也可以全部引入) 上传实现   ElementUI把上传的图片转为Base64     Ele" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                                                        <span><a href="/">Free Vmess Node</a></span>
+                                                                    </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>Vue结合ElementUI上传Base64编码后的图片实例_vue.js</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">ElementUI上传Base64编码后的图片</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">安装ElementUI</a></li> <li><a href="#_lab2_0_1" rel="nofollow">按需引入(当然如果需要你也可以全部引入)</a></li> <li><a href="#_lab2_0_2" rel="nofollow">上传实现 </a></li> </ul> <li><a href="#_label1" rel="nofollow">ElementUI把上传的图片转为Base64</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>ElementUI上传Base64编码后的图片</h2> <p>自我认为ElementUI还是一个很不错的写手机端的组件，所以这次做小项目的时候就用了ElementUI的Upload组件来实现图片的上传，不过ElementUI组件的上传图片更易于实现图片以File文件的形式实现，但是这次我需要把图片转换为base64编码来实现图片的上传。</p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>安装ElementUI</h3> <div class="ay1code"> <pre class="brush:js;">npm i element-ui -S</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>按需引入(当然如果需要你也可以全部引入)</h3> <div class="ay1code"> <pre class="brush:js;">import { Upload } from 'element-ui'  import 'element-ui/lib/theme-chalk/index.css'  Vue.use(Upload);</pre> </div> <p class="maodian"><a name="_lab2_0_2" rel="nofollow"></a></p> <h3>上传实现 </h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;      &lt;div&gt;         &lt;el-upload            class="avatar-uploader"            :action="actionUrl"            :show-file-list="false"            :on-change="getFile"&gt;            &lt;img v-if="imageUrl" ref="phoUrl" :src="imageUrl" class="avatar"&gt;            &lt;i v-else class="el-icon-plus avatar-uploader-icon"&gt;&lt;/i&gt;          &lt;/el-upload&gt;      &lt;/div&gt;  &lt;/template&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;  import {Toast} from "mint-ui";  export default {     data() {        return {         actionUrl:'',         imageUrl:'', //上传图片        };      },      methods: {       getBase64(file){  //把图片转成base64编码           return new Promise(function(resolve,reject){               let reader=new FileReader();               let imgResult="";               reader.readAsDataURL(file);               reader.onload=function(){                   imgResult=reader.result;               };               reader.onerror=function(error){                   reject(error);               };               reader.onloadend=function(){                   resolve(imgResult);               }           })       },       getFile(file,fileList){  //上传头像         this.getBase64(file.raw).then(res=&gt;{             this.$http.post('home/ImgUpload',{"img":res}).then(result=&gt;{                 if(result.body.status===200){                     this.imageUrl=result.body.data;                 }else{                     Toast('图片上传失败');                 }             })         })       }      }  }  &lt;/script&gt;</pre> </div> <div class="ay1code"> <pre class="brush:css;">&lt;style&gt;    .avatar-uploader .el-upload {      border: 1px dashed #d9d9d9;      border-radius: 6px;      cursor: pointer;      position: relative;      overflow: hidden;      width:101px;      height:101px;    }    .avatar-uploader .el-upload:hover {      border-color: #409EFF;    }    .avatar-uploader .el-upload .el-upload__input{        display: none;    }    .avatar-uploader-icon {      font-size: 28px;      color: #8c939d;      width: 100px;      height: 100px;      line-height: 100px;      text-align: center;    }    .avatar {      width: 100px;      height: 100px;      display: block;    }  &lt;/style&gt;</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>ElementUI把上传的图片转为Base64</h2> <p>使用组件，然后on-change绑定一个方法来获取文件信息，auto-upload设置为false即可 </p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;el-upload action='' :on-change="getFile" :limit="1" list-type="picture" :auto-upload="false"&gt;              &lt;el-button size="small" type="primary"&gt;选择图片上传,最多上传一张图片&lt;/el-button&gt;            &lt;/el-upload&gt;</pre> </div> <p>定义methods方法,当上传文件就会触发绑定的函数，然后文件的内容就会绑定到函数的参数里面，这样用file.raw就可以获取文件的内容了。</p> <div class="ay1code"> <pre class="brush:js;">  getFile(file, fileList) {       console.log(file.raw)      },</pre> </div> <p>然后自定义一个方法，用来把图片内容转为base64格式，imgResult就是base64格式的内容了。转为base64字符串要调用h5特性中的FileReader这个api,但是这个api不能return，所以用promise封装一下。</p> <div class="ay1code"> <pre class="brush:js;"> getBase64(file) {        return new Promise(function(resolve, reject) {          let reader = new FileReader();          let imgResult = "";          reader.readAsDataURL(file);          reader.onload = function() {            imgResult = reader.result;          };          reader.onerror = function(error) {            reject(error);          };          reader.onloadend = function() {            resolve(imgResult);          };        });      },</pre> </div> <p>最后调用一下</p> <div class="ay1code"> <pre class="brush:js;"> getFile(file, fileList) {            this.getBase64(file.raw).then(res =&gt; {        console.log(res)        });      },</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-41980.htm">养鱼专家电话 养鱼专家电话号码</a></p>
+                                        <p>下一个：<a href="/news/article-42467.htm">动物打了疫苗（动物打了疫苗被咬了需要人去打疫苗吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20139.htm" title="让猫挠了出血过了24小时有事吗（让猫挠了出血过了24小时有事吗会感染吗）">让猫挠了出血过了24小时有事吗（让猫挠了出血过了24小时有事吗会感染吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-high-speed-nodes.htm" title="1月18日 | Vmess节点订阅每天更新22M/S免费节点订阅链接">1月18日 | Vmess节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19682.htm" title="宠物猫疫苗多久打一次（宠物猫疫苗间隔多久打一次）">宠物猫疫苗多久打一次（宠物猫疫苗间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-subscribe-node.htm" title="11月4日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接">11月4日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-vmess-node.htm" title="10月15日 | Vmess节点订阅每天更新18.6M/S免费节点订阅链接">10月15日 | Vmess节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-vmess-node-share.htm" title="12月28日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接">12月28日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34155.htm" title="【mq】从零开始实现 mq-01-生产者、消费者启动">【mq】从零开始实现 mq-01-生产者、消费者启动</a></li>
+                        <li class="py-2"><a href="/news/article-42467.htm" title="动物打了疫苗（动物打了疫苗被咬了需要人去打疫苗吗）">动物打了疫苗（动物打了疫苗被咬了需要人去打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-26110.htm" title="河南兽药品牌排行（河南兽药品牌排行前十）">河南兽药品牌排行（河南兽药品牌排行前十）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-node-subscribe.htm" title="11月28日 | Vmess节点订阅每天更新22.9M/S免费节点订阅链接">11月28日 | Vmess节点订阅每天更新22.9M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
