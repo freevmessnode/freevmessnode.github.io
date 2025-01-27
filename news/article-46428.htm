@@ -1,0 +1,280 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-46428.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue 实现excel本地预览</title>
+        <meta name="description" content="&nbsp;安装npm依赖 npm i xlsx -S &nbsp; &nbsp;1、点击button 打开上传文件页面  &nbsp;2、解析数据  &nbsp;3、完整代码 &lt;templat" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-46428.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="vue 实现excel本地预览" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/02af77a3fe40d42f9d094c58f8e7eac7.webp" />
+        <meta property="og:release_date" content="2025-01-26T09:59:20" />
+    <meta property="og:updated_time" content="2025-01-26T09:59:20" />
+        <meta property="og:description" content="&nbsp;安装npm依赖 npm i xlsx -S &nbsp; &nbsp;1、点击button 打开上传文件页面  &nbsp;2、解析数据  &nbsp;3、完整代码 &lt;templat" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue 实现excel本地预览">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                                                        <span><a href="/">Free Vmess Node</a></span>
+                                                                    </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>vue 实现excel本地预览</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>&nbsp;安装npm依赖</h2> <pre><code>npm i xlsx -S</code></pre> <h3>&nbsp; &nbsp;1、点击button 打开上传文件页面</h3> <p><img fetchpriority="high" decoding="async" alt="" height="605" src="http://img.555519.xyz/uploads3/20220606/e16cfc8d0c7c5ac7fadeb691a6b557c7.jpg"></p> <h3>&nbsp;2、解析数据</h3> <p><img decoding="async" alt="" height="920" src="http://img.555519.xyz/uploads3/20220606/b7d3285fa8457174a9943011cac554e8.jpg"></p> <h3>&nbsp;3、完整代码</h3> <pre><code>&lt;template&gt;   &lt;div class="excel-wrapper"&gt;      &lt;!-- 上传按钮 --&gt;     &lt;input class="input-file"            type="file"            @change="exportData"            style="display:none"            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /&gt;     &lt;el-button type="success"                size="small"                @click="btnClick"&gt;上传excel&lt;/el-button&gt;     &lt;!-- END --&gt;      &lt;!-- 表格 --&gt;     &lt;el-table :data="tableData"               style="width: 100%"               height="450"               size="mini"&gt;       &lt;el-table-column :prop="item"                        :label="item"                        width="140"                        v-for="(item,index) in checkboxTableColumn"                        :key="'column'+index"&gt;       &lt;/el-table-column&gt;     &lt;/el-table&gt;     &lt;!-- END --&gt;      &lt;!-- 分页 --&gt;     &lt;el-pagination v-if="excelData != 0"                    @size-change="handleSizeChange"                    @current-change="CurrentChange"                    :current-page="currentPage"                    :page-sizes="[10, 20, 30,40,50,100,200,500]"                    :page-size="pageSize"                    layout="total, sizes, prev, pager, next, jumper"                    :total="total"&gt;     &lt;/el-pagination&gt;     &lt;!-- END --&gt;    &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import * as XLSX from 'xlsx' export default {   data() {     return {       //所有键的值       columnHeader: [],        // 导入的excel的数据       excelData: [],        // 表格显示列       checkboxTableColumn: [],        //表格数据       tableData: [],        // 当前分页       currentPage: 1,        // 每页显示数量       pageSize: 10,        // 数据总数       total: 0,     }   },    methods: {     // 将上传input框点击事件改为按钮     btnClick() {       document.querySelector('.input-file').click()     },      // 解析excel     exportData(event) {       if (!event.currentTarget.files.length) {         return       }       const that = this       // 拿取文件对象       let f = event.currentTarget.files[0]       //这里已经拿到了excel的file文件，若是项目需求，可直接$emit丢出文件       // that.$emit('getMyExcelData',f);       // 用FileReader来读取       let reader = new FileReader()       // 重写FileReader上的readAsBinaryString方法       // FileReader.prototype.readAsBinaryString = function(f) {       //   let binary = "";       //   let wb; // 读取完成的数据       //   let outdata; // 你需要的数据       //   let reader = new FileReader();       reader.onload = function (e) {         // 读取成Uint8Array，再转换为Unicode编码（Unicode占两个字节）         // let bytes = new Uint8Array(reader.result);         // let length = bytes.byteLength;         // for (let i = 0; i &lt; length; i++) {         //   binary += String.fromCharCode(bytes[i]);         // }         var data = e.target.result         // 接下来就是xlsx         var wb = XLSX.read(data, {           type: 'buffer',         })         var outdata = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]])         // 导出格式为json，{表数据：[]}         console.log(outdata)         that.excelData = outdata         that.tableData = outdata.slice(0, 10)         that.total = outdata.length          // 获取数据的key         var importDataThead = Array.from(Object.keys(outdata[0])).map(           (item) =&gt; {             return item           }         )          that.columnHeader = importDataThead         that.checkboxTableColumn = importDataThead.slice(0, 9)         console.log(importDataThead)       }       reader.readAsArrayBuffer(f)       // };       // reader.readAsBinaryString(f);     },      // 分页切换     CurrentChange(val) {       this.currentPage = val        this.tableData = this.excelData.slice(         (val - 1) * this.pageSize,         val * this.pageSize - 1       )     },     // 每页显示数量改变     handleSizeChange(val) {       this.pageSize = val       this.tableData = this.excelData.slice(         (this.currentPage - 1) * val,         this.currentPage * val - 1       )     },   }, } &lt;/script&gt; &lt;style  scoped&gt; .excel-wrapper {   /* height: 100vh; */   /* width: 600px; */   overflow: scroll;   background: rgb(226, 226, 226);   padding: 20px; } &lt;/style&gt;</code></pre> <p></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45953.htm">宠物店利润大吗（宠物店盈利模式是什么）</a></p>
+                                        <p>下一个：<a href="/news/article-46429.htm">同城免费领养小动物 同城免费领养宠物</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-31227.htm" title="动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）">动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）</a></li>
+                        <li class="py-2"><a href="/news/article-44455.htm" title="北京宠爱宠物医院在哪里（北京宠爱动物医院消费高吗）">北京宠爱宠物医院在哪里（北京宠爱动物医院消费高吗）</a></li>
+                        <li class="py-2"><a href="/news/article-37030.htm" title="Golang redis(六)redigo 发布订阅模式">Golang redis(六)redigo 发布订阅模式</a></li>
+                        <li class="py-2"><a href="/news/article-44959.htm" title="兰州哪里有宠物市场最大最出名的宠物市场啊（兰州宠物交易市场）">兰州哪里有宠物市场最大最出名的宠物市场啊（兰州宠物交易市场）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-vmess-node.htm" title="10月12日 | Vmess节点订阅每天更新20M/S免费节点订阅链接">10月12日 | Vmess节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-vmess-windows.htm" title="11月6日 | Vmess节点订阅每天更新20.4M/S免费节点订阅链接">11月6日 | Vmess节点订阅每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-subscribe-node.htm" title="12月15日 | Vmess节点订阅每天更新21.1M/S免费节点订阅链接">12月15日 | Vmess节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-subscribe-node.htm" title="11月5日 | Vmess节点订阅每天更新20.9M/S免费节点订阅链接">11月5日 | Vmess节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42467.htm" title="动物打了疫苗（动物打了疫苗被咬了需要人去打疫苗吗）">动物打了疫苗（动物打了疫苗被咬了需要人去打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-vmess-windows.htm" title="11月7日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接">11月7日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
