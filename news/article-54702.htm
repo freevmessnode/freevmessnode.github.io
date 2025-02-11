@@ -1,0 +1,279 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-54702.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blazor组件的生命周期解析_实用技巧_</title>
+        <meta name="description" content="执行周期  1. SetParametersAsync 2. OnInitializedAsync（调用两次） 和 OnInitialized； 3. OnParametersSetAsync 或 O" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-54702.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="Blazor组件的生命周期解析_实用技巧_" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/682ddc202f1cafe1c94ff2f868f76c78.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:43:00" />
+    <meta property="og:updated_time" content="2025-02-11T05:43:00" />
+        <meta property="og:description" content="执行周期  1. SetParametersAsync 2. OnInitializedAsync（调用两次） 和 OnInitialized； 3. OnParametersSetAsync 或 O" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Blazor组件的生命周期解析_实用技巧_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>Blazor组件的生命周期解析_实用技巧_</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2>执行周期</h2> <ul> <li>1. SetParametersAsync</li> <li>2. OnInitializedAsync（调用两次） 和 OnInitialized；</li> <li>3. OnParametersSetAsync 或 OnParametersSet；</li> <li>4. OnAfterRenderAsync 和 OnAfterRender；</li> <li>5. 每次组件呈现都会调用ShouldRender；</li> </ul> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220415/c97a51ad50508880f95a28c255c37aad.jpg"></p> <h2>各周期解析</h2> <h3>SetParametersAsync</h3> <p>每次调用 SetParametersAsync 时，ParameterView 都包含整个参数值集。</p> <p>SetParametersAsync 的默认实现使用 [Parameter] 或 [CascadingParameter] 特性（在 ParameterView 中具有对应的值）设置每个属性的值。 在 ParameterView 中没有对应值的参数保持不变。</p> <p>如果未调用 base.SetParametersAync，则自定义代码可使用任何需要的方式解释传入的参数值。 例如，不要求将传入参数分配给类的属性。</p> <p>如果设置有事件处理程序，处置时会将其解除挂接。 有关详细信息，请参阅使用 IDisposable 处置组件部分。</p> <div class="ay1code"> <pre class="brush:csharp;">public override async Task SetParametersAsync(ParameterView parameters)  {      await ...        await base.SetParametersAsync(parameters);  }</pre> </div> <h3>OnInitializedAsync 和 OnInitialized</h3> <p>SetParametersAsync 中的组件在从其父组件接收初始参数后初始化，此时，将调用 OnInitializedAsync 和 OnInitialized。</p> <p>在组件执行异步操作时使用 OnInitializedAsync，并应在操作完成后刷新。</p> <p>对于同步操作，替代 OnInitialized：</p> <p>预呈现其内容的 Blazor Server 应用调用 OnInitializedAsync 两次：</p> <ul> <li> <p>在组件最初作为页面的一部分静态呈现时调用一次。</p> </li> <li> <p>在浏览器重新建立与服务器的连接时调用第二次。</p> </li> </ul> <p>为了防止 OnInitializedAsync 中的开发人员代码运行两次，请参阅预呈现后的有状态重新连接部分。</p> <p>在 Blazor Server 应用进行预呈现时，由于尚未建立与浏览器的连接，无法执行调用 JavaScript 等特定操作。 预呈现时，组件可能需要进行不同的呈现。 有关详细信息，请参阅检测应用何时预呈现部分。</p> <p>如果设置有事件处理程序，处置时会将其解除挂接。</p> <p>备注</p> <blockquote> <p>应用参数和属性值时，异步操作必须在 OnParametersSetAsync 生命周期事件期间发生。</p> </blockquote> <div class="ay1code"> <pre class="brush:csharp;">protected override void OnInitialized()  {      ...  }    protected override async Task OnInitializedAsync()  {      await ...  }</pre> </div> <h3>OnParametersSetAsync 或 OnParametersSet</h3> <p>在以下情况下调用：</p> <p>在 OnInitializedAsync 或 OnInitialized 中初始化组件后。</p> <p>当父组件重新呈现并提供以下内容时：</p> <ul> <li> <p>至少一个参数已更改的唯一已知基元不可变类型。</p> </li> <li> <p>任何复杂类型的参数。 框架无法知道复杂类型参数的值是否在内部发生了改变，因此，它将参数集视为已更改。</p> </li> </ul> <p>备注</p> <blockquote> <p>应用参数和属性值时，异步操作必须在 OnParametersSetAsync 生命周期事件期间发生。</p> </blockquote> <div class="ay1code"> <pre class="brush:csharp;">protected override async Task OnParametersSetAsync()  {      await ...  }    protected override void OnParametersSet()  {      ...  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54145.htm">卖狗狗的平台微信免费交易安全吗（有在微信卖狗成功的吗）</a></p>
+                                        <p>下一个：<a href="/news/article-54703.htm">宠物粮品牌名称大全及图片（宠物粮食排行榜）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-50440.htm" title="flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！">flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！</a></li>
+                        <li class="py-2"><a href="/news/article-25661.htm" title="动物疫苗的种类有哪些,各有什么特点（动物疫苗的种类有哪些,各有什么特点呢）">动物疫苗的种类有哪些,各有什么特点（动物疫苗的种类有哪些,各有什么特点呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-node-share.htm" title="11月20日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接">11月20日 | Vmess节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44960.htm" title="动物医院申请网站官网（动物医院条件）">动物医院申请网站官网（动物医院条件）</a></li>
+                        <li class="py-2"><a href="/news/article-28450.htm" title="农大动物医院电话号码查询是多少啊（农大动物医院地址和联系电话）">农大动物医院电话号码查询是多少啊（农大动物医院地址和联系电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-vmess-node.htm" title="11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">11月23日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-51471.htm" title="Kafka如何保证可靠的数据传递">Kafka如何保证可靠的数据传递</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-today-vmess-node.htm" title="12月18日 | Vmess节点订阅每天更新18.4M/S免费节点订阅链接">12月18日 | Vmess节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47414.htm" title="蝴蝶犬幼犬多少钱一只（蝴蝶犬幼犬多少钱一只一）">蝴蝶犬幼犬多少钱一只（蝴蝶犬幼犬多少钱一只一）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-node-share.htm" title="2月9日 | Vmess节点订阅每天更新22.1M/S免费节点订阅链接">2月9日 | Vmess节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
