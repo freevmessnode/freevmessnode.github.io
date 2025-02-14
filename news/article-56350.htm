@@ -1,0 +1,279 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-56350.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>父传子、子传父经典案例—微信小程序自定义标题栏全过程</title>
+        <meta name="description" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程 1. 先在父组件（页面）的data中放入数组数据2. 在component文件夹新建组件Tabs3. 在父组件引入子组件 4. 在父组件的wxml" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-56350.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/a4e2a123640b3769ce0a67cc0de01a26.webp" />
+        <meta property="og:release_date" content="2025-02-14T10:01:47" />
+    <meta property="og:updated_time" content="2025-02-14T10:01:47" />
+        <meta property="og:description" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程 1. 先在父组件（页面）的data中放入数组数据2. 在component文件夹新建组件Tabs3. 在父组件引入子组件 4. 在父组件的wxml" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="父传子、子传父经典案例—微信小程序自定义标题栏全过程">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>父传子、子传父经典案例—微信小程序自定义标题栏全过程</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>父传子、子传父经典案例—微信小程序自定义标题栏全过程</h2> <p><strong>1.</strong> 先在父组件（页面）的data中放入数组数据<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/30bdfcfd7d9da80ab8b7f1af93feb7d5.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>2.</strong> 在component文件夹新建组件Tabs<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/527a4964f1466aac255fd2a288d9fe94.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>3.</strong> 在父组件引入子组件<img decoding="async" src="http://img.555519.xyz/uploads/20230207/88e8201f12f42f7d9aee14fbbfe8e58a.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"></p> <p><strong>4.</strong> 在父组件的wxml中引入子组件标签，此时组件的基操完成，准备进入父传子环节<img decoding="async" src="http://img.555519.xyz/uploads/20230207/28efbd1ce9cca9bfeae662ca3e946d06.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>5.</strong> 父亲向子组件传递数据靠<strong>属性</strong>，咱们在子组件标签中引入在list属性，值为咱们在data中的list数组<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/fd4665f47b749b1dd05393e35165e82c.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>6.</strong> 引入属性后不要忘记在子组件js文件中的properties中写清楚引入的属性的类型以及默认值<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/281a4bddc4dff663331e261712e06c49.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>7.</strong> 此时子组件已经获取父组件的list数据，这时候我们就可以在子组件中操作样式而在父组件（页面）中显示了</p> <p>在子组件wxml中定义标题栏最外层容器存放标题栏和内容<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/ec12914e2e0e0b1fa130b66306bc8abd.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/af53f91fa495d939cc5e8c76a0d97440.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"></p> <p><strong>效果：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/7c6aba9c819ec80030029564716bd5f0.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 此时父传子完成，接下来进行子传父步骤.<br /><strong>8.</strong> 我们接下来想完成点击自定义标题，标题发生样式改变的效果，我们之前是在组件中渲染父组件传递过来的数据的，我们在子组件的wxml中绑定点击事件并且定义索引index，当我们点击标题时出发子组件中的自定义点击事件获得当前标题的索引，并用triggerEvent方法，将点击的索引传递给父组件的自定义点击事件，所以此时我们点击标题，父组件有返回值（若不加这个方法，父组件是没有返回值的）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/89f15a442355a56691f7c1f81e953756.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 所以我们可以从父组件返回值中提取索引，并获取父组件data中的list数组，循环所有标题索引，若等于获取到的index，则该索引对应的值的isactive方法值变为true，否则为false<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/238e3328a44cbb0e21e669d32c162a8b.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /><strong>9.</strong> 在子组件wxml中新加active类，若isactive属性为true就添加样式active类<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/2cae647f4244138ab9df51417d800cfb.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 在子组件less文件中设置active样式<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/f8e53b57c73c9c25217bf7e4e3a3b137.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"><br /> 此时子传父完成，本案例的子传父，即子组件被点击的标题的index值传递给父组件的自定义方法中，最后父组件的这个自定义方法改变这个索引对应的标题的样式。</p> <p><strong>效果：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230207/51dc6440753b4816ed6cd71c022f9cce.jpg" alt="父传子、子传父经典案例—微信小程序自定义标题栏全过程"></p> <p><strong>总结：</strong><br /> 父传子过程通过属性来进行，子传父过程通过triggerEvent（“父组件自定义点击事件”，子组件要传递的值）方法来传值</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-55803.htm">动物疫苗检测报告查询（动物疫苗查询系统）</a></p>
+                                        <p>下一个：<a href="/news/article-56351.htm">mapreduce读取parquet文件</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-node-subscribe.htm" title="12月4日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接">12月4日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-55238.htm" title="javaScript中Math内置对象基本方法入门_在线工具">javaScript中Math内置对象基本方法入门_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-vmess-github.htm" title="1月13日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接">1月13日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38500.htm" title="重庆宠物领养平台官网地址在哪里查（重庆宠物领养平台官网地址在哪里查找）">重庆宠物领养平台官网地址在哪里查（重庆宠物领养平台官网地址在哪里查找）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-subscribe-node.htm" title="1月16日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接">1月16日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-54144.htm" title="动物疫苗的管理方法有哪些 动物疫苗的管理方法有哪些呢">动物疫苗的管理方法有哪些 动物疫苗的管理方法有哪些呢</a></li>
+                        <li class="py-2"><a href="/news/article-21511.htm" title="八公家宠物酒店（八公家宠物酒店怎么样）">八公家宠物酒店（八公家宠物酒店怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-52542.htm" title="宠物批发网平台有哪些品牌（宠物批发网app）">宠物批发网平台有哪些品牌（宠物批发网app）</a></li>
+                        <li class="py-2"><a href="/news/article-27523.htm" title="动物接种疫苗的好处有哪些 动物接种疫苗的好处有哪些呢">动物接种疫苗的好处有哪些 动物接种疫苗的好处有哪些呢</a></li>
+                        <li class="py-2"><a href="/news/article-48914.htm" title="vue自定义指令 页面加载触发点击事件 （传参调用函数）">vue自定义指令 页面加载触发点击事件 （传参调用函数）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

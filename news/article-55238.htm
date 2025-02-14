@@ -1,0 +1,279 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-55238.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>javaScript中Math内置对象基本方法入门_在线工具</title>
+        <meta name="description" content="概念   Math 是javaScript的内置对象，包含了部分数学常数属性和数学函数方法。   Math 不是一个函数对象，用户Number类型进行使用，不支持BigInt。   Math 的所有属" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-55238.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="javaScript中Math内置对象基本方法入门_在线工具" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/0390504e933f4a4ac8fb2687a3a16be8.webp" />
+        <meta property="og:release_date" content="2025-02-12T09:07:21" />
+    <meta property="og:updated_time" content="2025-02-12T09:07:21" />
+        <meta property="og:description" content="概念   Math 是javaScript的内置对象，包含了部分数学常数属性和数学函数方法。   Math 不是一个函数对象，用户Number类型进行使用，不支持BigInt。   Math 的所有属" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="javaScript中Math内置对象基本方法入门_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>javaScript中Math内置对象基本方法入门_在线工具</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h3 id="概念"><strong>概念</strong></h3> <ul> <li> <p>Math 是javaScript的内置对象，包含了部分数学常数属性和数学函数方法。</p> </li> <li> <p>Math 不是一个函数对象，用户Number类型进行使用，不支持BigInt。</p> </li> <li> <p>Math 的所有属性与方法都是静态的。</p> </li> <li> <p>比如说当我们使用圆周率的时候，写法是 Math.PI</p> </li> <li> <p>当使用正余弦函数的写法是 Math.sin(x)，x 是要传入的参数。</p> </li> <li> <p>Math 的常量是使用 JavaScript 中的全精度浮点数来定义的。</p> </li> </ul> <h3 id="math原生属性"><strong>math原生属性</strong></h3> <pre><code> // 欧拉常数，也是自然对数的底数，约等于 2.718。 console.log("Math.E", Math.E);  //  Math.E 2.718281828459045 // 2 的自然对数，约等于 0.693。 console.log("Math.LN2", Math.LN2);  //  Math.LN2 0.6931471805599453 // 10 的自然对数，约等于 2.303。 console.log("Math.LN10", Math.LN10);  //  Math.LN10 2.302585092994046 // 以 2 为底的 E 的对数，约等于 1.443。 console.log("Math.LOG2E", Math.LOG2E);  //  Math.LOG2E 1.4426950408889634 // 以 10 为底的 E 的对数，约等于 0.434。 console.log("Math.LOG10E", Math.LOG10E);  //  Math.LOG10E 0.4342944819032518 // 圆周率，一个圆的周长和直径之比，约等于 3.14159。 console.log("Math.PI", Math.PI);  //  Math.PI 3.141592653589793 // 计算圆周长 function calculateCircumference(radius) {   return 2 * Math.PI * radius; } console.log("calculateCircumference(1)", calculateCircumference(1)); // calculateCircumference(1) 6.283185307179586 // 二分之一 ½ 的平方根，同时也是 2 的平方根的倒数  1 2 ，约等于 0.707。 console.log("Math.SQRT1_2", Math.SQRT1_2);  //  Math.SQRT1_2 0.7071067811865476 // 2 的平方根，约等于 1.414。 console.log("Math.SQRT2", Math.SQRT2);  //  Math.SQRT2 1.4142135623730951   </code></pre> <h3 id="math常用方法"><strong>math常用方法</strong></h3> <pre><code>Math.abs()  // 指定数字 “x“ 的绝对值 Math.abs("-1"); // 1 Math.abs(-2); // 2 Math.abs(null); // 0 Math.abs("string"); // NaN Math.abs(); // NaN  </code></pre> <h4 id="math在日常开发中的数字处理方法"><strong>math在日常开发中的数字处理方法</strong></h4> <pre><code>// Math.round() 函数返回一个数字四舍五入后最接近的整数。 console.log(Math.round(20.49)); //20 console.log(Math.round(20.5)); //21 console.log(Math.round(-20.5)); //-20 console.log(Math.round(-20.51)); //-21   // Math.ceil() 返回大于或等于一个给定数字的最小整数，向上取整。 console.log(Math.ceil(0.95)); // 1 console.log(Math.ceil(4)); // 4 console.log(Math.ceil(7.004)); // 8 console.log(Math.ceil(-7.004)); // -7  // Math.floor() 返回小于或等于一个给定数字的最大整数, Math.floor()为向下取整。 Math.floor(45.95); // 45 Math.floor(45.05); // 45 Math.floor(4); // 4 Math.floor(-45.05); // -46 Math.floor(-45.95); // -46  // Math.max() 返回一组数当中的最大值 console.log(Math.max(1, 3, 2)); // 3 console.log(Math.max(-1, -3, -2)); // -1 const array1 = [1, -3, 2]; console.log(Math.max(...array1)); // 3   // Math.min() 返回零个或更多个数值的最小值。 console.log(Math.min()); // Infinity console.log(Math.min(1, 2, 3, -4)); // -4  // 使用 Math.min() 裁剪值（Clipping a value） function f(x) {   if (x &gt; 5) {     return (x = 5);   }   return (x = 6); } var finalMin = Math.min(f(2), 2, 3, 4, 5, 30); console.log("finalMin", finalMin);  // 2   // Math.sqrt() 返回一个数的平方根 function calcHypotenuse(a, b) {   return Math.sqrt(a * a + b * b); } console.log(calcHypotenuse(3, 4)); // 5 console.log(calcHypotenuse(5, 12)); // 13 console.log(calcHypotenuse(0, 0)); // 0  </code></pre> <h5 id="使用mathrandom生成随机数"><strong>使用Math.random()生成随机数</strong></h5> <pre><code>/**  *  * Math.random() 函数返回一个浮点数  * 伪随机数在范围从0到小于1，也就是说，从0（包括0）往上，但是不包括1（排除1），  * 然后您可以缩放到所需的范围。实现将初始种子选择到随机数生成算法;它不能被用户选择或重置。  *  * */  console.log(Math.random());  function getRandomNumber(min, max) {   min = Math.ceil(min);   max = Math.floor(max);   return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 }  console.log(getRandomNumber(2, 100));   </code></pre> <h4 id="小结"><strong>小结</strong></h4> <ul> <li>以上例子包含了math常用的方法和属性的api</li> <li>math在使用过程中，可以结合random以及max和min方法等，生成需要的随机数</li> <li>通过round、floor、ceil，我们可以针对数字进行进一步地取值，得到符合要求的数字格式</li> </ul> <p>Math更多方法请查阅文档</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math"  target="_blank"  rel="nofollow">Math文档</a></p> <hr> <h5 id="mathjs插件"><strong>Mathjs插件</strong></h5> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://note.youdao.com/"  target="_blank"  rel="nofollow"><strong>文档地址</strong><br /> https://mathjs.org/examples/index.html</a></p> <ul> <li> <p>mathjs的插件提供的方法比较全面，涵盖了从代数计算到函数计算，货币运算等方法，矩阵序列化等,更多方法可以查看官方文档。</p> </li> <li> <p>基础使用方法：</p> </li> </ul> <pre><code>npm install mathjs  import { sqrt } from 'mathjs'  console.log(sqrt(-4).toString()) // 2i  </code></pre> <hr> <h4 id="源码地址">源码地址</h4> <ul> <li> <h5 id="码云-httpsgiteecomlewyonvue-note"> <strong>码云</strong> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/lewyon/vue-note"  target="_blank"  rel="nofollow">https://gitee.com/lewyon/vue-note</a><br /> </h5> </li> <li> <h5 id="githup-httpsgithubcomakari16vue-note"> <strong>githup</strong> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/akari16/vue-note"  target="_blank"  rel="nofollow">https://github.com/akari16/vue-note</a><br /> </h5> </li> </ul> <p>文章个人博客地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://lewyon.xyz/mathFun.html"  target="_blank"  rel="nofollow">javaScript中Math内置对象基本方法入门</a></p> <p>欢迎关注公众号：程序猿布欧，不定期更新一些前端入门文章</p> <p>创作不易，转载请注明出处和作者。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54703.htm">宠物粮品牌名称大全及图片（宠物粮食排行榜）</a></p>
+                                        <p>下一个：<a href="/news/article-55239.htm">一片片枫叶随风飘落好像什么补充句子（一片片枫叶落下来像什么）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22430.htm" title="青岛哪家动物医院好一点（青岛哪家宠物医院好）">青岛哪家动物医院好一点（青岛哪家宠物医院好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-vmess-node-share.htm" title="1月23日 | Vmess节点订阅每天更新20.7M/S免费节点订阅链接">1月23日 | Vmess节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-latest-vmess-node.htm" title="1月7日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接">1月7日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="12月17日 | Vmess节点订阅每天更新20.8M/S免费节点订阅链接">12月17日 | Vmess节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-node-share.htm" title="2月2日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接">2月2日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43462.htm" title="宠物领养合同怎么写 宠物领养合同怎么写范本">宠物领养合同怎么写 宠物领养合同怎么写范本</a></li>
+                        <li class="py-2"><a href="/news/article-26109.htm" title="vue中同时监听多个参数的实现_vue.js">vue中同时监听多个参数的实现_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-31227.htm" title="动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）">动物疫苗接种后多久产生抗体了正常（动物疫苗打几次）</a></li>
+                        <li class="py-2"><a href="/news/article-36540.htm" title="动物医院需要什么设备（动物医院需要几个兽医资格证）">动物医院需要什么设备（动物医院需要几个兽医资格证）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-node-share-links.htm" title="1月2日 | Vmess节点订阅每天更新21.2M/S免费节点订阅链接">1月2日 | Vmess节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
