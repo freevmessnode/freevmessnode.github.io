@@ -1,0 +1,279 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-66388.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>springboot 整合 gridfs 、webUploader实现大文件分块上传、断点续传、秒传</title>
+        <meta name="description" content="主要的pom.xml： &lt;dependency&gt;             &lt;groupId&gt;mysql&lt;/groupId&gt;             &lt;arti" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-66388.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="springboot 整合 gridfs 、webUploader实现大文件分块上传、断点续传、秒传" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/44920efe6a5f7200dfed0a597c972270.webp" />
+        <meta property="og:release_date" content="2025-03-03T08:14:10" />
+    <meta property="og:updated_time" content="2025-03-03T08:14:10" />
+        <meta property="og:description" content="主要的pom.xml： &lt;dependency&gt;             &lt;groupId&gt;mysql&lt;/groupId&gt;             &lt;arti" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot 整合 gridfs 、webUploader实现大文件分块上传、断点续传、秒传">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>springboot 整合 gridfs 、webUploader实现大文件分块上传、断点续传、秒传</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>主要的pom.xml：</p> <pre class="has"><code>&lt;dependency&gt;             &lt;groupId&gt;mysql&lt;/groupId&gt;             &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;         &lt;/dependency&gt; &lt;!--mongodb--&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;         &lt;/dependency&gt; &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;         &lt;/dependency&gt;</code></pre> <p>大家发现多了一个mysql，主要是为了在里面存文件列表用</p> <p>resource目录如下：</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="317" src="http://img.555519.xyz/uploads/20230223/0502207960e85401cfefae22a766d752.jpg"></p> <p>application.properties：</p> <p>替换成自己的用户名密码</p> <pre class="has"><code>pring.datasource.url=jdbc:mysql://127.0.0.1:3306/hrms?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true&amp;serverTimezone=GMT spring.datasource.username=root spring.datasource.password=123456 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver spring.jpa.database=mysql #自动建表 spring.jpa.hibernate.ddl-auto=update #设置数据库方言 spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect #打印sql spring.jpa.show-sql=true  #连接mongodb spring.data.mongodb.uri=mongodb://127.0.0.1:27017/mydb spring.data.mongodb.username=root spring.data.mongodb.password=123456</code></pre> <p>&nbsp;</p> <p>&nbsp;前端upload.html：</p> <p>进度条仅为测试，样式有点丑请忽略（webUploader官网的例子有点问题，需要自己调一下）</p> <pre class="has"><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;title&gt;Title&lt;/title&gt;     &lt;!--引入CSS--&gt;     &lt;link  type="text/css" href="/css/webuploader.css"&gt;     &lt;!--引入JS--&gt;     &lt;script type="text/javascript" src="/js/admin.js"&gt;&lt;/script&gt;     &lt;script type="text/javascript" src="/js/jquery-3.3.1.min.js"&gt;&lt;/script&gt;     &lt;script type="text/javascript" src="/js/webuploader.js"&gt;&lt;/script&gt;     &lt;!--SWF在初始化的时候指定，在后面将展示--&gt;     &lt;style&gt;         #ctlBtn {             top: 0px;             left: 0px;             width: 94px;             height: 40.8px;             overflow: hidden;             bottom: auto;             right: auto;         }     &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div id="uploader" class="wu-example"&gt;     &lt;!--用来存放文件信息--&gt;     &lt;div id="thelist" class="uploader-list"&gt;&lt;/div&gt;     &lt;div class="btns"&gt;         &lt;div id="picker"&gt;选择文件&lt;/div&gt;         &lt;button id="ctlBtn" class="btn btn-default"&gt;开始上传&lt;/button&gt;     &lt;/div&gt; &lt;/div&gt; &lt;/body&gt; &lt;script&gt;     var md5;     //监听分块上传过程中的三个时间点     WebUploader.Uploader.register({         "before-send-file": "beforeSendFile",         "before-send": "beforeSend",         "after-send-file": "afterSendFile"     }, {         //时间点1：所有分块进行上传之前调用此函数         beforeSendFile: function (file) {             var deferred = WebUploader.Deferred();             //1、计算文件的唯一标记，用于断点续传             (new WebUploader.Uploader()).md5File(file, 0, 10 * 1024 * 1024)                 .progress(function (percentage) {                     $('#' + file.id).find("p.state").text("正在读取文件信息...");                 })                 .then(function (val) {                     md5 = val;                     $('#' + file.id).find("p.state").text("成功获取文件信息...");                     //获取文件信息后进入下一步                     deferred.resolve();                 });             return deferred.promise();         },         //时间点2：如果有分块上传，则每个分块上传之前调用此函数         beforeSend: function (block) {             var deferred = WebUploader.Deferred();             $.ajax({                 type: "get",                 url: BASE_PATH + "/check",                 data: {                     //文件唯一标记                     "md5": md5,                     //当前分块下标                     "chunk": block.chunk,                     //当前分块大小                     "chunkSize": block.end - block.start                 },                 //无缓存                 cache: false,                 //无异步（必须加，否则异步上传会上传已经上传过的块）                 async: false,                 dataType: "json",                 success: function (data) {                     if (data) {                         //分块存在，跳过                         deferred.reject();                     } else {                         //分块不存在或不完整，重新发送该分块内容                         deferred.resolve();                     }                 }             });              this.owner.options.formData.md5 = md5;             deferred.resolve();             return deferred.promise();         }         //时间点3：所有分块上传成功后调用此函数         // afterSendFile: function () {         //     //如果分块上传成功，则通知后台合并分块         //     $.ajax({         //         type: "POST",         //         url: "&lt;%=basePath%&gt;Video?action=mergeChunks",         //         data: {         //             md5: md5,         //         },         //         success: function (response) {         //             alert("上传成功");         //             var path = "uploads/" + md5 + ".mp4";         //             $("#item1").attr("src", path);         //         }         //     });         // }     });     var uploader = WebUploader.create({         // swf文件路径         swf: BASE_PATH + "/js/Uploader.swf",         // 文件接收服务端。         server: BASE_PATH + "/upload",         // 选择文件的按钮。可选。         // 内部根据当前运行是创建，可能是input元素，也可能是flash.         pick: "#picker",         // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！         resize: false,         //开启分片上传         chunked: true,         //分片大小         chunkSize: 10 * 1024 * 1024,         //并发数         threads: 10         //请求参数表         // formData:datalist,     });      $("#ctlBtn").on("click", function () {         uploader.upload();     });      // 当有文件被添加进队列的时候     uploader.on('fileQueued', function (file) {         $("#thelist").append("&lt;div id=\"" + file.id + "\" class=\"item\"&gt;" +             "&lt;h4 class=\"info\"&gt;" + file.name + "&lt;/h4&gt;" +             "&lt;p class=\"state\"&gt;等待上传...&lt;/p&gt;" +             "&lt;/div&gt;");         // //暂停上传的文件         // $("#thelist").on('click', '.stop', function () {         //     uploader.stop(true);         // }),         // //删除上传的文件         // $("#thelist").on('click', '.remove', function () {         //     if ($(this).parents(".item").attr('id') === file.id) {         //         uploader.removeFile(file);         //         $(this).parents(".item").remove();         //     }         // })     });      // 文件上传过程中创建进度条实时显示。     uploader.on('uploadProgress', function (file, percentage) {         var $li = $('#' + file.id);         var $percent = $li.find('.progress .progress-bar');          // 避免重复创建         if (!$percent.length) {             // $percent = $('&lt;div class="progress progress-striped active"&gt;' +             //     '&lt;div class="progress-bar" role="progressbar" style="width: 0%"&gt;' +             //     '&lt;/div&gt;' +             //     '&lt;/div&gt;').appendTo($li).find('.progress-bar');             $percent = $('&lt;div class="progress progress-striped active"&gt;' +                 '&lt;div class="progress-bar" role="progressbar" style="width: 0%"&gt;' +                 '&lt;/div&gt;' +                 '&lt;/div&gt;').appendTo($li).find('.progress');         }         $li.find('p.state').text('上传中');         $percent.css({'width': percentage * 100 + '%', 'height': 10, 'background-color': 'blue'});     });       uploader.on('uploadSuccess', function (file) {         $('#' + file.id).find('p.state').text('已上传');     });      uploader.on('uploadError', function (file) {         $('#' + file.id).find('p.state').text('上传出错');     });      uploader.on('uploadComplete', function (file) {         $('#' + file.id).find('.progress').fadeOut();     });  &lt;/script&gt; &lt;/html&gt;</code></pre> <p>前端download.html</p> <pre class="has"><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;title&gt;download&lt;/title&gt;     &lt;script type="text/javascript" src="/js/admin.js"&gt;&lt;/script&gt;     &lt;script type="text/javascript" src="/js/jquery-3.3.1.min.js"&gt;&lt;/script&gt; &lt;/head&gt; &lt;body&gt; &lt;div id="fileList"&gt;  &lt;/div&gt; &lt;/body&gt; &lt;script type="text/javascript"&gt;     function download(id) {         window.location.href = BASE_PATH + "/download?md5=" + id;     }      $.ajax({         url: BASE_PATH + "/fileList",         type: "get",         success: function (data) {             $.each(data, function (index, val) {                 var html = "&lt;p&gt;" + val.name + "&lt;/p&gt;&lt;button onclick=\"download('" + val.id + "')\"&gt;下载&lt;/button&gt;";                 $("#fileList").append(html);             })         }     })  &lt;/script&gt; &lt;/html&gt;</code></pre> <p>存BASE_PATH的admin.js：</p> <pre class="has"><code class="language-javascript">var obj = window.document.location; var BASE_PATH = obj.href.substring(0, obj.href.indexOf(obj.pathname));</code></pre> <p>最重要的后端FileController：</p> <p>文件上传至gridfs，直接存的块</p> <pre class="has"><code class="language-java">package com.example.demo.controller;  import com.example.demo.entity.FileEntity; import com.example.demo.jpa.FileJpa; import com.mongodb.BasicDBObject; import com.mongodb.gridfs.GridFS; import com.mongodb.gridfs.GridFSDBFile; import com.mongodb.gridfs.GridFSInputFile; import org.apache.commons.lang3.StringUtils; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.data.domain.Example; import org.springframework.data.mongodb.MongoDbFactory; import org.springframework.web.bind.annotation.GetMapping; import org.springframework.web.bind.annotation.PostMapping; import org.springframework.web.bind.annotation.RequestParam; import org.springframework.web.bind.annotation.RestController; import org.springframework.web.multipart.MultipartFile;  import javax.servlet.ServletOutputStream; import javax.servlet.http.HttpServletResponse; import java.io.IOException; import java.io.InputStream; import java.net.URLEncoder; import java.util.List;  /**  * @author FastKing  * @version 1.0  * @date 2018/10/26 9:56  **/ @RestController public class FileController {  	@Autowired 	private MongoDbFactory mongoDbFactory;  	@Autowired 	private FileJpa fileJpa;  	@GetMapping("/fileList") 	public Object list() { 		return fileJpa.findAll(); 	}  	@PostMapping("/upload") 	public void upload(@RequestParam(value = "file") MultipartFile file, 					   @RequestParam(value = "md5") String md5, 					   @RequestParam(value = "chunk", defaultValue = "0", required = false) String chunk, 					   @RequestParam(value = "name") String name) { 		FileEntity fileEntity = new FileEntity(); 		fileEntity.setId(md5); 		fileEntity.setName(name); 		if (!fileJpa.findOne(Example.of(fileEntity)).isPresent()) { 			fileJpa.save(fileEntity); 		} 		BasicDBObject basicDBObject = new BasicDBObject(); 		//块下标，下载文件时需要合并块，用这个参数排序 		basicDBObject.append("chunk", Short.valueOf(chunk)); 		//块大小，断点续传时，用这个参数判断该块是否完整上传 		basicDBObject.append("chunkSize", file.getSize()); 		//文件唯一标识，用来筛选对应文件的所有块 		basicDBObject.append("md5", md5); 		GridFS gridFS = new GridFS(mongoDbFactory.getLegacyDb()); 		try { 			GridFSInputFile inputFile = gridFS.createFile(file.getInputStream(), name.substring(0, name.lastIndexOf("."))); 			//设置文件类型 			inputFile.setContentType(name.substring(name.lastIndexOf(".") + 1)); 			//存入元数据 			inputFile.setMetaData(basicDBObject); 			inputFile.save(); 		} catch (IOException e) { 			e.printStackTrace(); 		} 	}  	@GetMapping("/download") 	public void download(@RequestParam(value = "md5") String md5, HttpServletResponse response) { 		//1.设置文件ContentType类型，这样设置，会自动判断下载文件类型 		response.setContentType("text/html;charset=utf-8"); 		response.setContentType("application/x-download"); 		response.addHeader("Cache-Control", "no-cache"); 		GridFS gridFS = new GridFS(mongoDbFactory.getLegacyDb()); 		//两个BasicDBObject，第一个为筛选条件，第二个为排序（-1为DESC倒序，1为ASC正序） 		List&lt;GridFSDBFile&gt; gridFSDBFiles = gridFS.find(new BasicDBObject("metadata.md5", md5), new BasicDBObject("metadata.chunk", 1)); 		byte[] buffer = new byte[1024]; 		try { 			ServletOutputStream outputStream = response.getOutputStream(); 			Long lenth = 0L; 			for (GridFSDBFile gridFSDBFile : gridFSDBFiles) { 				//2.设置文件头： 				response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(gridFSDBFile.getFilename() + "." + gridFSDBFile.getContentType(), "utf-8")); 				lenth += gridFSDBFile.getLength(); 				int count; 				InputStream inputStream = gridFSDBFile.getInputStream(); 				while ((count = inputStream.read(buffer)) &gt; 0) { 					outputStream.write(buffer, 0, count); 				} 				inputStream.close(); 			} 			response.setHeader("Content-Length", "" + lenth); 		} catch (IOException e) { 			e.printStackTrace(); 		} 	}  	@GetMapping("/check") 	public Object check(@RequestParam(value = "md5") String md5, 						@RequestParam(value = "chunk", required = false) String chunk, 						@RequestParam(value = "chunkSize", required = false) String chunkSize) { 		GridFS gridFS = new GridFS(mongoDbFactory.getLegacyDb()); 		BasicDBObject basicDBObject = new BasicDBObject(); 		//根据文件唯一标识和块下标确定唯一一个块 		basicDBObject.append("metadata.md5", md5); 		basicDBObject.append("metadata.chunk", Short.valueOf(chunk)); 		GridFSDBFile file = gridFS.findOne(basicDBObject); 		//判断该块是否上传过，或是否上传完整 		if (null != file &amp;&amp; Short.valueOf(file.getMetaData().get("chunkSize").toString()).equals(Short.valueOf(chunkSize))) { 			return true; 		} else if (null != file) { 			//如果上传不完整则重新上传 			gridFS.remove(basicDBObject); 		} 		return false; 	}  } </code></pre> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65779.htm">动物接种疫苗多少钱一针啊 动物接种疫苗多少钱一针啊图片</a></p>
+                                        <p>下一个：<a href="/news/article-66389.htm">打完动物疫苗注意事项有哪些（打动物疫苗不能吃什么）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-50440.htm" title="flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！">flex布局，解决最后一排数量不够自动向两端对齐的问题（适合所有列的布局：3列、4列、5列等等）推荐使用！</a></li>
+                        <li class="py-2"><a href="/news/article-21511.htm" title="八公家宠物酒店（八公家宠物酒店怎么样）">八公家宠物酒店（八公家宠物酒店怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-35041.htm" title="成都宠物领养中心官网收容中心电话是多少（成都宠物收容机构）">成都宠物领养中心官网收容中心电话是多少（成都宠物收容机构）</a></li>
+                        <li class="py-2"><a href="/news/article-32256.htm" title="学宠物美容后悔了（学宠物美容坑死了）">学宠物美容后悔了（学宠物美容坑死了）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share-links.htm" title="1月10日 | Vmess节点订阅每天更新22.1M/S免费节点订阅链接">1月10日 | Vmess节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-60342.htm" title="Springboot连接MySQL数据库">Springboot连接MySQL数据库</a></li>
+                        <li class="py-2"><a href="/news/article-55238.htm" title="javaScript中Math内置对象基本方法入门_在线工具">javaScript中Math内置对象基本方法入门_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-25661.htm" title="动物疫苗的种类有哪些,各有什么特点（动物疫苗的种类有哪些,各有什么特点呢）">动物疫苗的种类有哪些,各有什么特点（动物疫苗的种类有哪些,各有什么特点呢）</a></li>
+                        <li class="py-2"><a href="/news/article-27058.htm" title="自己家宠物猫挠出血不打针有事吗（自己家养的宠物猫被挠出血了）">自己家宠物猫挠出血不打针有事吗（自己家养的宠物猫被挠出血了）</a></li>
+                        <li class="py-2"><a href="/news/article-61528.htm" title="猫咪领养协议模板免费下载（领养猫的协议是什么样的）">猫咪领养协议模板免费下载（领养猫的协议是什么样的）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
