@@ -1,0 +1,273 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-86024.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>java cron 每100分钟执行一次</title>
+        <meta name="description" content="直接撸代码！ 每一个半小时执行一次 cron表达式: 0 30 0/2 * * ? 每100分钟执行一次 cron表达式: 0 40 0/2 * * ? 补充点信息： 秒 0-59 , - * / 分" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-86024.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="java cron 每100分钟执行一次" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/0390504e933f4a4ac8fb2687a3a16be8.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:47:56" />
+    <meta property="og:updated_time" content="2025-04-01T09:47:56" />
+        <meta property="og:description" content="直接撸代码！ 每一个半小时执行一次 cron表达式: 0 30 0/2 * * ? 每100分钟执行一次 cron表达式: 0 40 0/2 * * ? 补充点信息： 秒 0-59 , - * / 分" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java cron 每100分钟执行一次">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>java cron 每100分钟执行一次</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>直接撸代码！<br /> 每一个半小时执行一次<br /> cron表达式: 0 30 0/2 * * ?<br /> 每100分钟执行一次<br /> cron表达式: 0 40 0/2 * * ?<br /> 补充点信息：<br /> 秒 0-59 , - * /<br /> 分 0-59 , - * /<br /> 小时 0-23 , - * /<br /> 日 1-31 , - * ? / L W C<br /> 月 1-12 or JAN-DEC , - * /<br /> 周几 1-7 or SUN-SAT , - * ? / L C #<br /> 年 (可选字段) empty, 1970-2099 , - * /<br /> “?”字符：表示不确定的值<br /> “,”字符：指定数个值<br /> “-”字符：指定一个值的范围<br /> “/”字符：指定一个值的增加幅度。n/m表示从n开始，每次增加m<br /> “L”字符：用在日表示一个月中的最后一天，用在周表示该月最后一个星期X<br /> “W”字符：指定离给定日期最近的工作日(周一到周五)<br /> “#”字符：表示该月第几个周X。6#3表示该月第3个周五<br /> 2）Cron表达式范例：<br /> 每隔5秒执行一次：*/5 * * * * ?<br /> 每隔1分钟执行一次：0 */1 * * * ?<br /> 每天23点执行一次：0 0 23 * * ?<br /> 每天凌晨1点执行一次：0 0 1 * * ?<br /> 每月1号凌晨1点执行一次：0 0 1 1 * ?<br /> 每月最后一天23点执行一次：0 0 23 L * ?<br /> 每周星期天凌晨1点实行一次：0 0 1 ? * L<br /> 在26分、29分、33分执行一次：0 26,29,33 * * * ?<br /> 每天的0点、13点、18点、21点都执行一次：0 0 0,13,18,21 * * ?</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85304.htm">领养协议书范本宠物 领养协议书范本宠物怎么写</a></p>
+                                        <p>下一个：<a href="/news/article-86025.htm">Python 一网打尽＜排序算法＞之从希尔排序算法的分治哲学开始</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-85303.htm" title="Spring boot项目打包成jar在linux环境下设置开机自启动">Spring boot项目打包成jar在linux环境下设置开机自启动</a></li>
+                        <li class="py-2"><a href="/news/article-87442.htm" title="宠物粮食品牌都有什么名字呢女生（宠物粮食品牌起名大全）">宠物粮食品牌都有什么名字呢女生（宠物粮食品牌起名大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-free-node-subscribe.htm" title="3月20日 | Vmess节点订阅每天更新19.2M/S免费节点订阅链接">3月20日 | Vmess节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-68311.htm" title="python调用C的函数">python调用C的函数</a></li>
+                        <li class="py-2"><a href="/news/article-84575.htm" title="成都宠物领养微信公众号是什么名字（成都宠物论坛领养）">成都宠物领养微信公众号是什么名字（成都宠物论坛领养）</a></li>
+                        <li class="py-2"><a href="/news/article-81072.htm" title="宠物粮厂家招聘电话（宠物粮厂家招聘电话）">宠物粮厂家招聘电话（宠物粮厂家招聘电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-node-subscribe-links.htm" title="3月30日 | Vmess节点订阅每天更新19.2M/S免费节点订阅链接">3月30日 | Vmess节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-80341.htm" title="宠物医生资格证报名时间2023（宠物医生资格证报名时间2023）">宠物医生资格证报名时间2023（宠物医生资格证报名时间2023）</a></li>
+                        <li class="py-2"><a href="/news/article-72233.htm" title="什么人养猫运气会变好（猫最忌讳的三个属相）">什么人养猫运气会变好（猫最忌讳的三个属相）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-node-subscribe.htm" title="3月10日 | Vmess节点订阅每天更新21.1M/S免费节点订阅链接">3月10日 | Vmess节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
