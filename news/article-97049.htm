@@ -1,0 +1,275 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-97049.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Spring 源码BeanFactoryPostProcessor是如何执行的</title>
+        <meta name="description" content="上一篇文章https://www.cnblogs.com/redwinter/p/16167214.html 解读了如何进行自定义属性值的编辑器的解析器，并且还介绍了BeanFactory的准备过程中" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-97049.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="Spring 源码BeanFactoryPostProcessor是如何执行的" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/35ba000582a77eddb1fcf74142b4e070.webp" />
+        <meta property="og:release_date" content="2025-04-16T08:39:12" />
+    <meta property="og:updated_time" content="2025-04-16T08:39:12" />
+        <meta property="og:description" content="上一篇文章https://www.cnblogs.com/redwinter/p/16167214.html 解读了如何进行自定义属性值的编辑器的解析器，并且还介绍了BeanFactory的准备过程中" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring 源码BeanFactoryPostProcessor是如何执行的">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>Spring 源码BeanFactoryPostProcessor是如何执行的</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>上一篇文章<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/redwinter/p/16167214.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/redwinter/p/16167214.html</a> 解读了如何进行自定义属性值的编辑器的解析器，并且还介绍了BeanFactory的准备过程中做了哪些事情。这篇文章继续介绍AbstractApplicationContext#refresh的方法。</p> <h3 id="abstractapplicationcontext提供的postprocessbeanfactory空方法">AbstractApplicationContext提供的postProcessBeanFactory空方法</h3> <p>postProcessBeanFactory这个方法没名字跟BeanFactoryPostProcessor接口中的方法一样，但是他的功能是提供给子类进行添加一些额外的功能，比如添加BeanPostProcessor接口的实现，或者定制一些其他的功能也是可以的，因为这个方法你可以拿到BeanFactory，自然是可以对他进行一些功能的定制的。</p> <p>这里看下Spring 提供的子类<code>GenericWebApplicationContext</code>是如何实现的：</p> <pre><code class="language-java">@Override protected void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {   if (this.servletContext != null) {     beanFactory.addBeanPostProcessor(new ServletContextAwareProcessor(this.servletContext));     beanFactory.ignoreDependencyInterface(ServletContextAware.class);   }   WebApplicationContextUtils.registerWebApplicationScopes(beanFactory, this.servletContext);   WebApplicationContextUtils.registerEnvironmentBeans(beanFactory, this.servletContext); }</code></pre> <p>这里他注册了一个<code>ServletContextAwreProcessor</code> 到<code>beanFactory</code>中，<code>ServletContexAwareProcessor</code>是一个<code>BeanPostProcessor</code>接口的子类。</p> <h3 id="重头戏beanfactorypostprocessor">重头戏BeanFactoryPostProcessor</h3> <p>接下来分析<code>AbstractApplicationContext#refresh</code>中的<code>invokeBeanFactoryPostProcessors</code>方法，这个方法用来注册和执行<code>BeanFactoryPostProcessor</code>的。</p> <p>直接上源码：</p> <pre><code class="language-java">protected void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory) {   // 执行所有的BeanFactoryPostProcessor   PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());    // Detect a LoadTimeWeaver and prepare for weaving, if found in the meantime   // (e.g. through an @Bean method registered by ConfigurationClassPostProcessor)   // aop的处理   if (beanFactory.getTempClassLoader() == null &amp;&amp; beanFactory.containsBean(LOAD_TIME_WEAVER_BEAN_NAME)) {     beanFactory.addBeanPostProcessor(new LoadTimeWeaverAwareProcessor(beanFactory));     beanFactory.setTempClassLoader(new ContextTypeMatchClassLoader(beanFactory.getBeanClassLoader()));   } }</code></pre> <p>重点在这里：</p> <pre><code class="language-java">PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(beanFactory, getBeanFactoryPostProcessors());</code></pre> <p>首先获取<code>BeanFactoryPostProcessor</code>的集合，这里获取到都是用户在定制<code>BeanFactory</code>时<code>add</code>加入进去的，进入这个方法：</p> <pre><code class="language-java">public static void invokeBeanFactoryPostProcessors(   ConfigurableListableBeanFactory beanFactory, List&lt;BeanFactoryPostProcessor&gt; beanFactoryPostProcessors) {    // Invoke BeanDefinitionRegistryPostProcessors first, if any.   // 已经处理的Bean   Set&lt;String&gt; processedBeans = new HashSet&lt;&gt;();   // 先进性外部BFPP的处理，并且判断当前Factory是否是BeanDefinitionRegistry   if (beanFactory instanceof BeanDefinitionRegistry) {     BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;     // 保存BFPP的Bean     List&lt;BeanFactoryPostProcessor&gt; regularPostProcessors = new ArrayList&lt;&gt;();     // 保存BDRPP的Bean     List&lt;BeanDefinitionRegistryPostProcessor&gt; registryProcessors = new ArrayList&lt;&gt;();     // 开始处理外部传入的BFPP     for (BeanFactoryPostProcessor postProcessor : beanFactoryPostProcessors) {       // 先处理BDRPP       if (postProcessor instanceof BeanDefinitionRegistryPostProcessor) {         BeanDefinitionRegistryPostProcessor registryProcessor =           (BeanDefinitionRegistryPostProcessor) postProcessor;         // 直接调用BDRPP的接口方法，后面的postProcessBeanFactory 方法后面统一处理         registryProcessor.postProcessBeanDefinitionRegistry(registry);         // 加入到BFPP的集合中         registryProcessors.add(registryProcessor);       }       else {         // 加入到BDRPP的集合中         regularPostProcessors.add(postProcessor);       }     }      // Do not initialize FactoryBeans here: We need to leave all regular beans     // uninitialized to let the bean factory post-processors apply to them!     // Separate between BeanDefinitionRegistryPostProcessors that implement     // PriorityOrdered, Ordered, and the rest.     // 保存当前的BDRPP     List&lt;BeanDefinitionRegistryPostProcessor&gt; currentRegistryProcessors = new ArrayList&lt;&gt;();      // First, invoke the BeanDefinitionRegistryPostProcessors that implement PriorityOrdered.     // 按类型获取BeanName     String[] postProcessorNames =       beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);     for (String ppName : postProcessorNames) {       // 判断当前的beanName是都是实现了PriorityOrdered       if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {         // 加入到当前注册的BDRPP集合中         currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));         // 加入到已经处理的bean集合中         processedBeans.add(ppName);       }     }     // 对当前的BDRPP进行排序     sortPostProcessors(currentRegistryProcessors, beanFactory);     // 将当前的BDRPP全部加入到最前面定义的BDRPP的集合中     registryProcessors.addAll(currentRegistryProcessors);     // 执行当前的BDRPP的postProcessBeanDefinitionRegistry方法     invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);     // 清空当前的BDRPP     currentRegistryProcessors.clear();      // Next, invoke the BeanDefinitionRegistryPostProcessors that implement Ordered.     // 再次获取bdrpp,因为上面的执行可能还会加入新的bdrpp进来     postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);     for (String ppName : postProcessorNames) {       // 判断是否已经处理过，并且是否实现了Ordered接口       if (!processedBeans.contains(ppName) &amp;&amp; beanFactory.isTypeMatch(ppName, Ordered.class)) {         // 加入到当前的BDRPP的集合中         currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));         // 添加到已经处理的集合中         processedBeans.add(ppName);       }     }     // 排序     sortPostProcessors(currentRegistryProcessors, beanFactory);     // 加入到BDRPP集合中     registryProcessors.addAll(currentRegistryProcessors);     // 执行bdrpp的postProcessBeanDefinitionRegistry方法     invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);     // 清空当前bdrpp集合     currentRegistryProcessors.clear();      // Finally, invoke all other BeanDefinitionRegistryPostProcessors until no further ones appear.     boolean reiterate = true;     // 循环去获取BDRPP,然后进行排序、执行操作，直到所有的BDRPP全部执行完     while (reiterate) {       reiterate = false;       // 获取BDRPP       postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);       for (String ppName : postProcessorNames) {         // 如果已经处理过，就执行BDRPP，并且退出循环，否则继续循环         if (!processedBeans.contains(ppName)) {           currentRegistryProcessors.add(beanFactory.getBean(ppName, BeanDefinitionRegistryPostProcessor.class));           processedBeans.add(ppName);           reiterate = true;         }       }       // 排序       sortPostProcessors(currentRegistryProcessors, beanFactory);       // 加入到BDRPP集合中       registryProcessors.addAll(currentRegistryProcessors);       // 执行bdrpp       invokeBeanDefinitionRegistryPostProcessors(currentRegistryProcessors, registry);       currentRegistryProcessors.clear();     }      // Now, invoke the postProcessBeanFactory callback of all processors handled so far.     // 执行bdrpp 中的postProcessBeanFactory方法     invokeBeanFactoryPostProcessors(registryProcessors, beanFactory);     // 执行bfpp 中的postProcessBeanFactory方法     invokeBeanFactoryPostProcessors(regularPostProcessors, beanFactory);   }    else {     // 如果不是bdrpp，那么直接执行bfpp的postProcessBeanFactory     // Invoke factory processors registered with the context instance.     invokeBeanFactoryPostProcessors(beanFactoryPostProcessors, beanFactory);   }    // Do not initialize FactoryBeans here: We need to leave all regular beans   // uninitialized to let the bean factory post-processors apply to them!   // 获取BFPP的beanName集合   String[] postProcessorNames =     beanFactory.getBeanNamesForType(BeanFactoryPostProcessor.class, true, false);    // Separate between BeanFactoryPostProcessors that implement PriorityOrdered,   // Ordered, and the rest.   // 定义实现了PriorityOrdered的BFPP   List&lt;BeanFactoryPostProcessor&gt; priorityOrderedPostProcessors = new ArrayList&lt;&gt;();   // 定义实现了Ordered接口的集合   //		List&lt;String&gt; orderedPostProcessorNames = new ArrayList&lt;&gt;();   List&lt;BeanFactoryPostProcessor&gt; orderedPostProcessors = new ArrayList&lt;&gt;();   // 定义没有排序的集合   //		List&lt;String&gt; nonOrderedPostProcessorNames = new ArrayList&lt;&gt;();   List&lt;BeanFactoryPostProcessor&gt; nonOrderedPostProcessors = new ArrayList&lt;&gt;();   for (String ppName : postProcessorNames) {     // 如果已经处理过了就不做处理     if (processedBeans.contains(ppName)) {       // skip - already processed in first phase above     }     else if (beanFactory.isTypeMatch(ppName, PriorityOrdered.class)) {       priorityOrderedPostProcessors.add(beanFactory.getBean(ppName, BeanFactoryPostProcessor.class));     }     else if (beanFactory.isTypeMatch(ppName, Ordered.class)) {       //				orderedPostProcessorNames.add(ppName);       orderedPostProcessors.add(beanFactory.getBean(ppName,BeanFactoryPostProcessor.class));     }     else {       //				nonOrderedPostProcessorNames.add(ppName);       nonOrderedPostProcessors.add(beanFactory.getBean(ppName,BeanFactoryPostProcessor.class));     }   }    // First, invoke the BeanFactoryPostProcessors that implement PriorityOrdered.   // 排序   sortPostProcessors(priorityOrderedPostProcessors, beanFactory);   // 先执行PriorityOrdered接口的bfpp   invokeBeanFactoryPostProcessors(priorityOrderedPostProcessors, beanFactory);    // Next, invoke the BeanFactoryPostProcessors that implement Ordered.   // 这里将上面获取到Ordered接口的BFPP进行集合转换，然后排序，然后执行，这里其实可以直接合并，   // 在上述进行获取时就放在这个orderedPostProcessors集合中   //		List&lt;BeanFactoryPostProcessor&gt; orderedPostProcessors = new ArrayList&lt;&gt;(orderedPostProcessorNames.size());   //		for (String postProcessorName : orderedPostProcessorNames) {   //			orderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));   //		}   sortPostProcessors(orderedPostProcessors, beanFactory);   invokeBeanFactoryPostProcessors(orderedPostProcessors, beanFactory);    // Finally, invoke all other BeanFactoryPostProcessors.   // 处理没有排序的   //		List&lt;BeanFactoryPostProcessor&gt; nonOrderedPostProcessors = new ArrayList&lt;&gt;(nonOrderedPostProcessorNames.size());   //		for (String postProcessorName : nonOrderedPostProcessorNames) {   //			nonOrderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));   //		}   invokeBeanFactoryPostProcessors(nonOrderedPostProcessors, beanFactory);    // Clear cached merged bean definitions since the post-processors might have   // modified the original metadata, e.g. replacing placeholders in values...   // 清除缓存的元数据，因为经过BFPP的执行，可能BeanDefinition的属性值已经个变化，比如使用占位符的属性值   beanFactory.clearMetadataCache(); }</code></pre> <p>这个方法大概很长，实际上就做了一下这么几点事情：</p> <ul> <li>先执行外部传入的<code>BeanFactoryPostProcessor</code>的实现</li> <li>处理时先处理<code>BeanFactoryPostProcessor</code>的子接口<code>BeanDefinitionRegistryPostProcessor</code>的实现</li> <li>处理<code>BeanDefinitionRegistryPostProcessor</code>实现的时候先处理实现了<code>PriorityOrdered</code>接口的实现</li> <li>处理完<code>PriorityOrdered</code>接口实现的类之后再处理实现了<code>Ordered</code>接口的实现</li> <li>处理完<code>Ordered</code>接口的实现类之后处理没有排序的</li> <li>处理完<code>BeanDefinitionRegistryPostProcessor</code>的实现之后处理<code>BeanFactoryPostProcessor</code>的实现</li> <li>处理顺序也是<code>PriorityOreded</code>，<code>Ordered</code>，没有排序的</li> </ul> <p>这里大概逻辑就是这个，看起来可能不是很懂，画个流程图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/38917726483d0bb0268212d02b97157b.jpg" alt="Spring 源码BeanFactoryPostProcessor是如何执行的"></p> <p>通过流程图可以简化为：先遍历执行外部传入的<code>BFPP</code>，再执行<code>BDRPP</code>，再执行<code>BFPP</code>三部分，处理每一部分可能会进行排序操作，排序按照<code>PriorityOrdered</code>，<code>Ordered</code>，<code>noSort</code>进行排序再执行。</p> <p>这里解释下<code>BeanDefinitionRegistryPostProcessor</code>，这个接口是<code>BeanFactoryPostProcessor</code>，它里面包含一个方法叫<code>postProcessBeanDefinitionRegistry</code>，这个方法非常重要，在实现类<code>ConfigurationClassPostProcessor</code>中就是使用这个方法进行注解的解析的，而且这个类也是实现<code>SpringBoot</code>自动装配的关键。</p> <p><code>ConfigurationClassPostProcessor</code>这个类是什么时候加入到<code>Spring</code>容器的呢？</p> <p>在我们启动容器的时候，<code>Spring</code>会进行<code>BeanDefinition</code>的扫描，如果我们在<code>xml</code>配置文件中开启了注解扫描：</p> <pre><code class="language-xml">&lt;context:component-scan base-package="com.redwinter.test"/&gt;</code></pre> <p>那么这个时候就会自动添加多个<code>BeanDefinition</code>到<code>Spring</code>容器中，<code>beanName</code>为<code>org.springframework.context.annotation.internalConfigurationAnnotationProcessor</code>，其他还有几个：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e600f7374395be917558ce243af55e9a.jpg" alt="Spring 源码BeanFactoryPostProcessor是如何执行的"></p> <p>前面的文章<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/redwinter/p/16165878.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/redwinter/p/16165878.html</a> 讲到自定义标签，在spring解析xml时分为默认的命名空间和自定义的命名空间的，而context就是自定义的命名空间，这个标签的解析器为ComponentScanBeanDefinitionParser，这个类中的parse方法就是解析逻辑处理：</p> <pre><code class="language-java">@Override @Nullable public BeanDefinition parse(Element element, ParserContext parserContext) {   String basePackage = element.getAttribute(BASE_PACKAGE_ATTRIBUTE);   basePackage = parserContext.getReaderContext().getEnvironment().resolvePlaceholders(basePackage);   String[] basePackages = StringUtils.tokenizeToStringArray(basePackage,                                                             ConfigurableApplicationContext.CONFIG_LOCATION_DELIMITERS);   // Actually scan for bean definitions and register them.   // 配置扫描器   ClassPathBeanDefinitionScanner scanner = configureScanner(parserContext, element);   // 扫描BeanDefinition，在指定的包下   Set&lt;BeanDefinitionHolder&gt; beanDefinitions = scanner.doScan(basePackages);   // 注册组件   registerComponents(parserContext.getReaderContext(), beanDefinitions, element);    return null; }</code></pre> <p>这个方法执行流程：</p> <ul> <li>创建一个配置扫描器</li> <li>扫描指定包下标有注解的类并解析为<code>BeanDefinition</code></li> <li>执行<code>registerComponents</code>方法，注册组件</li> </ul> <p><code>registerComponents</code>方法里面就是添加<code>ConfigurationClassPostProcessor</code>的地方，由于代码太多这里只贴部分代码：</p> <pre><code class="language-java">// ...省略部分代码 Set&lt;BeanDefinitionHolder&gt; beanDefs = new LinkedHashSet&lt;&gt;(8); 		// 判断注册器中个是否包含org.springframework.context.annotation.internalConfigurationAnnotationProcessor 		// 不包含就加入一个ConfigurationClassPostProcessor的BeanDefinition 		// 用于解析注解 		if (!registry.containsBeanDefinition(CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME)) { 			// 创建一个BeanDefinition为ConfigurationClassPostProcessor 			RootBeanDefinition def = new RootBeanDefinition(ConfigurationClassPostProcessor.class); 			def.setSource(source); 			// 注册一个beanName为org.springframework.context.annotation.internalConfigurationAnnotationProcessor 			// 的BeanDefinition，class为ConfigurationClassPostProcessor 			beanDefs.add(registerPostProcessor(registry, def, CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME)); 		} 		// 创建一个AutowiredAnnotationBeanPostProcessor的BeanDefinition 		// 用于自动装配 		if (!registry.containsBeanDefinition(AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME)) { 			RootBeanDefinition def = new RootBeanDefinition(AutowiredAnnotationBeanPostProcessor.class); 			def.setSource(source); 			beanDefs.add(registerPostProcessor(registry, def, AUTOWIRED_ANNOTATION_PROCESSOR_BEAN_NAME)); 		} // ...省略部分代码</code></pre> <p>源码中注册了一个<code>beanName</code>为<code>CONFIGURATION_ANNOTATION_PROCESSOR_BEAN_NAME</code>常量的名字，这个常量就是<code>org.springframework.context.annotation.internalConfigurationAnnotationProcessor</code>，<code>class</code>为<code>ConfigurationClassPostProcessor</code></p> <p><strong>那注解的解析是如何进行解析的呢？</strong>由于篇幅过长，下一篇再来解析。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96363.htm">丹阳有领养猫咪的地方吗（丹阳宠物免费领养）</a></p>
+                                        <p>下一个：<a href="/news/article-97050.htm">基于Python编写一个简单的端口扫描器_python</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-85304.htm" title="领养协议书范本宠物 领养协议书范本宠物怎么写">领养协议书范本宠物 领养协议书范本宠物怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-68310.htm" title="C语言进阶——数据的存储">C语言进阶——数据的存储</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-latest-vmess-node.htm" title="4月11日 | Vmess节点订阅每天更新20.1M/S免费节点订阅链接">4月11日 | Vmess节点订阅每天更新20.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-vmess-node-share.htm" title="3月29日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接">3月29日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-vmess-windows.htm" title="3月4日 | Vmess节点订阅每天更新19M/S免费节点订阅链接">3月4日 | Vmess节点订阅每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-89632.htm" title="echarts图表实现自适应缩放(vue用法也一致)">echarts图表实现自适应缩放(vue用法也一致)</a></li>
+                        <li class="py-2"><a href="/news/article-77617.htm" title="办理动物医院需要什么手续和证件和证件材料（开办一间动物医院需要什么资质）">办理动物医院需要什么手续和证件和证件材料（开办一间动物医院需要什么资质）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-node-share-links.htm" title="4月14日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接">4月14日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-node-share.htm" title="3月24日 | Vmess节点订阅每天更新20M/S免费节点订阅链接">3月24日 | Vmess节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-high-speed-nodes.htm" title="3月3日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接">3月3日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
