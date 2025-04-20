@@ -1,0 +1,275 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-98505.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Redux基础必知必会 reducer拆分 中间件 单向数据流</title>
+        <meta name="description" content="什么是 redux? 三大原则？ 什么是 redux Redux 是一个基于 js 的全局可预测状态容器，主要用于现代前端框架中进行全局状态管理，能够在不同组件之间进行状态共享 Redux 常与 Re" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-98505.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="Redux基础必知必会 reducer拆分 中间件 单向数据流" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/6adeb41152b93fd93c66b6168fcd56c0.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:39:01" />
+    <meta property="og:updated_time" content="2025-04-18T09:39:01" />
+        <meta property="og:description" content="什么是 redux? 三大原则？ 什么是 redux Redux 是一个基于 js 的全局可预测状态容器，主要用于现代前端框架中进行全局状态管理，能够在不同组件之间进行状态共享 Redux 常与 Re" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Redux基础必知必会 reducer拆分 中间件 单向数据流">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>Redux基础必知必会 reducer拆分 中间件 单向数据流</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="什么是-redux-三大原则">什么是 redux? 三大原则？</h2> <p><strong>什么是 redux</strong><br /> Redux 是一个基于 js 的全局可预测状态容器，主要用于现代前端框架中进行全局状态管理，能够在不同组件之间进行状态共享<br /> Redux 常与 React 配合使用，但它并非只能用于 React，由于 Vue 官方推出了自己的状态管理库 Vuex，因此 Redux 很少在 Vue 中使用<br /> Redux 的实现借鉴了 Flux， 如单项数据流。但又有别于 Flux，如全局单例 store</p> <p><strong>redux 三大原则</strong></p> <ol> <li> <p>单一数据源<br /> store 必须是唯一的，全局的 state 存储在单一 store 中</p> </li> <li> <p>state 是只读的<br /> state 只能通过派发 action 来改变</p> </li> <li> <p>reducer 必须是纯函数<br /> reducer 只做一件事情，通过累积的 preState 和当前的 action 计算得出新的 state<br /> 相同的输入必须得到相同的结果，因此 reducer 必须是一个纯函数</p> </li> </ol> <p>reducer 中不应该出现副作用，比如发请求</p> <p></p> <h2 id="为什么要用-redux">为什么要用 redux</h2> <p>React 的定义是"一个用于构建 UI 界面的 javascript 库"，React 关注的点在于如何将状态转换为 UI(UI = fn(state))，在自带的状态管理方案中:</p> <ul> <li>state: 适用于管理自身状态，也可联合 this.props.chidren 实现 callback render</li> <li>props: 适用于父子组件传值，但父子组件嵌套过深时这种方式过于繁琐</li> <li>context: 适用于父子组件嵌套过深和兄弟组件共享状态的场景。context 一般是作为局部的状态管理方案而不是全局的，因为 context 一旦更新，Provider 下包裹的所有子组件都会重新渲染，造成性能问题</li> </ul> <p>在一个复杂的应用中，数据的流向存在跨层、反向的数据流， 在交互上也存在父子、兄弟、跨组件通信， 不利于维护<br /> 而 Redux 只需要在最外层传入 store， 内层组件即可通过 props 与 store 中的状态交互<br /> 在 Redux 中，数据的流动是单向的，store 是全局单一的，reducer 是纯函数，同样的输入得到的输出一定相同，因此状态是可预测的</p> <h2 id="什么时候用-redux">什么时候用 redux</h2> <ol> <li>某个组件的状态，需要让其他组件可以随时拿到</li> <li>一个组件需要改变另外一个组件的状态</li> <li>如果你不确定要不要用 redux，那就一定不需要用 redux</li> </ol> <p></p> <h2 id="redux-基本-api">redux 基本 api</h2> <h4 id="createstore">createStore</h4> <p>createStore 是 redux 的重要组成部分， 大部分 api 都基于它生成<br /> 以下是 createStore 的形参列表</p> <ol> <li>reducer: 初始化、更新 state</li> <li>preloadedState: 默认初始化 state，但一般不用它而是 reducer 处理 init action 来初始化一个 state</li> <li>enhancer: 一般用于 applyMiddleWare 增加中间件，作用是对 createStore 进行增强，覆盖原来的 dispatch 来实现一些功能上的拓展，如异步 action、日志打印、异常监听</li> </ol> <p></p> <h4 id="getstate">getState</h4> <p>获取 state 的唯一方式，返回当前最新的 state<br /> createStore 内部维持了一个变量 currentState，这个变量是私有的，对外部隐藏，只通过唯一接口 getState 对外暴露<br /> react-redux connect 方法底层也是通过这个 api 拿到 state</p> <p></p> <h4 id="dispatch">dispatch</h4> <p>改变 state 的唯一方式，通过 dispatch 将用户的行为以 action 的形式通知给 redux，通知 redux 把计算最新的状态并反馈给用户<br /> 如果你想在 dispatch 的前后做一些拓展功能，比如异步 action，异常收集，日志打印，建议使用中间件来做一些增强</p> <p></p> <h4 id="subscribe">subscribe</h4> <p>订阅 store 的状态变化，当且仅当 dispatch 触发状态更新之后执行入参 callback 回调函数，并返回一个取消订阅时执行的回调函数。<br /> 通常我们使用这个 api 来实现 redux 和其他 js 库通信<br /> react-redux 底层在 Provider 中通过 store.subscribe 发起订阅，在 state 改变时，会检查子组件是否通过 connect 消费了 store 以及子组件的 props 有变化，如果这两个条件都满足，就使用最新的状态更新子组件，从而达到精确的最小粒度的 render，相对于 context 一旦数据更新就渲染所有 Provider 包裹的子组件而言，这种处理方式在性能上显然是更优的</p> <p></p> <h2 id="redux-combinereducers-拆分reducer">redux combineReducers 拆分reducer</h2> <p>随着业务复杂度的增加，把所有状态都放在一个 reducer 中进行处理只会让代码变得更加难以维护<br /> 此时可以利用 combineReducers 拆分多个不同的 reducer，对不同业务模块的状态进行分别管理</p> <p>combineReducers 接受一个 reducers obj 作为入参，你可以给不同 reducer 指定 key，这样调用 getState 时拿到的也是对应 key 的 state<br /> 如果多个组件要共享 state，使用相同的 reducer 即可</p> <pre><code class="language-javascript">import {combineReducers, createStore} from 'redux' import countReducer from './reducer' import countReducer2 from './count2reducer'  const store = createStore(combineReducers(myCountState:countReducer,myCountState2:countReducer2})) // store.getState() {myCountState:{...},myCountState2:{...}}  export default store</code></pre> <p></p> <h2 id="redux-middleware-中间件">redux MiddleWare 中间件</h2> <p>如果要记录状态的历史变化，你会怎么做？<br /> 我们可能很容易想到只要在 dispatch 前后分别 log 一下就好了<br /> 但是一个复杂的大型项目，调用 dispatch 的地方不计其数，上述实现过于臃肿</p> <p>所以我们应当使用中间件</p> <p>中间件其实就是对 dispatch 的增强，中间件在 action 到达 store 的前后提供了逻辑插入点，我们可以在上面实现一些异步 action、日志输出、异常检测等功能</p> <p><strong>使用中间件</strong><br /> 通过 applyMiddleWare 传入中间件</p> <pre><code class="language-javascript">const store = createStore(reducer, applyMiddleware(thunk))</code></pre> <p></p> <h2 id="redux-数据流向">redux 数据流向</h2> <ol> <li>初始化 store，此时 redux 会 dispatch 一个 type 为 init，payload 为 undefined 的 action 并从 reducer 拿到最初的 state</li> <li>组件引入 store 并通过 getState 消费 store 状态，通过 subscribe 订阅 store 状态变化</li> <li>用户动作产生 action，dispatch 派发 action 到 store 并通过 reducer 更新状态。dispatch 的前后如果有中间件会在此时执行中间件相关逻辑</li> <li>状态更新发布之后通知订阅者，订阅者执行注册订阅的回调函数，在回调函数中可以调用 render 将最新的状态展现给用户，并等待用户的下一次动作</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3ee2b41b77553e64dde12dab76263137.jpg" alt="Redux基础必知必会 reducer拆分 中间件 单向数据流"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97826.htm">动物疫苗行业现状分析论文（动物疫苗行业前景）</a></p>
+                                        <p>下一个：<a href="/news/article-98506.htm">央视猫（央视猫）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-81072.htm" title="宠物粮厂家招聘电话（宠物粮厂家招聘电话）">宠物粮厂家招聘电话（宠物粮厂家招聘电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-high-speed-nodes.htm" title="4月10日 | Vmess节点订阅每天更新21.6M/S免费节点订阅链接">4月10日 | Vmess节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-97049.htm" title="Spring 源码BeanFactoryPostProcessor是如何执行的">Spring 源码BeanFactoryPostProcessor是如何执行的</a></li>
+                        <li class="py-2"><a href="/news/article-75562.htm" title="动物疫苗注射后多久产生抗体（动物打疫苗后多久能杀了吃）">动物疫苗注射后多久产生抗体（动物打疫苗后多久能杀了吃）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-node-subscribe.htm" title="3月17日 | Vmess节点订阅每天更新20.6M/S免费节点订阅链接">3月17日 | Vmess节点订阅每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-81708.htm" title="全国领养宠物 全国领养宠物平台">全国领养宠物 全国领养宠物平台</a></li>
+                        <li class="py-2"><a href="/news/article-66389.htm" title="打完动物疫苗注意事项有哪些（打动物疫苗不能吃什么）">打完动物疫苗注意事项有哪些（打动物疫苗不能吃什么）</a></li>
+                        <li class="py-2"><a href="/news/article-94881.htm" title="宠物猫要多少钱（宠物猫托运大概要多少钱）">宠物猫要多少钱（宠物猫托运大概要多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-node-subscribe.htm" title="3月16日 | Vmess节点订阅每天更新18.9M/S免费节点订阅链接">3月16日 | Vmess节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-85304.htm" title="领养协议书范本宠物 领养协议书范本宠物怎么写">领养协议书范本宠物 领养协议书范本宠物怎么写</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
