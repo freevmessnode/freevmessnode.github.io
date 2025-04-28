@@ -1,0 +1,278 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevmessnode.github.io/news/article-105421.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>机器学习笔记：Python底层实现KNN</title>
+        <meta name="description" content="小白纯新手，自学了sklearn，想要挑战用python手写机器学习中的主要算法。   借助python自带的pandas库导入数据，很简单。用的数据是下载到本地的红酒集。 代码如下（示例）： imp" />
+        <link rel="icon" href="/assets/website/img/freevmessnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeVmessNode免费订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevmessnode.github.io/news/article-105421.htm" />
+    <meta property="og:site_name" content="FreeVmessNode免费订阅官网" />
+    <meta property="og:title" content="机器学习笔记：Python底层实现KNN" />
+    <meta property="og:image" content="https://freevmessnode.github.io/uploads/20240805/7f79e58efa971b68eef2952e7149345d.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:27:37" />
+    <meta property="og:updated_time" content="2025-04-27T08:27:37" />
+        <meta property="og:description" content="小白纯新手，自学了sklearn，想要挑战用python手写机器学习中的主要算法。   借助python自带的pandas库导入数据，很简单。用的数据是下载到本地的红酒集。 代码如下（示例）： imp" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="机器学习笔记：Python底层实现KNN">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/flaticon.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/freevmessnode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6D9QQ70R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4H6D9QQ70R');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <a href="/">
+                        Free Vmess Node                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area header-transparent">
+            <div class="main-header">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="/">
+                                                                        <span>Free Vmess Node</span>
+                                                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-8 col-md-8">
+                                <!-- Main-menu -->
+                                <div class="main-menu f-right d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <main>
+        <!-- Hero Start-->
+        <div class="slider-area slider-bg ">
+            <div class="single-slider d-flex align-items-center slider-height2 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center pt-50">
+                                <h1>机器学习笔记：Python底层实现KNN</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Shape -->
+            <div class="slider-shape d-none d-lg-block">
+                <img class="slider-shape1" src="assets/img/hero/top-left-shape.png" alt="">
+                <img class="slider-shape2" src="assets/img/hero/right-top-shape.png" alt="">
+                <img class="slider-shape3" src="assets/img/hero/left-botom-shape.png" alt="">
+            </div>
+        </div>
+        <!--Hero End -->
+        <!-- Testimonial Start -->
+        <div class="testimonial-area testimonial-padding mt-5">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> </h1> <p><span style="color:#999aaa;">小白纯新手，自学了sklearn，想要挑战用python手写机器学习中的主要算法。</span></p> <hr/> </h1> <p>借助python自带的pandas库导入数据，很简单。用的数据是下载到本地的红酒集。</p> <p><span style="color:#999aaa;">代码如下（示例）：</span></p> <pre><code class="language-c language-python">import pandas as pd def read_xlsx(csv_path):     data = pd.read_csv(csv_path)     print(data)     return data</code></pre> <h2 id="2.%E8%AF%BB%E5%85%A5%E6%95%B0%E6%8D%AE">2.归一化</h2> <p>KNN算法中将用到距离，因此归一化是一个重要步骤，可以消除数据的量纲。我用了归一化，消除量纲也可以用标准化，但是作为新手，我觉得归一化比较简单。</p> <p>其中最大最小值的计算用到了python中的numpy库，pandas导入的数据是DateFrame形式的，np.array()用来将DateFrame形式转化为可以用numpy计算的ndarray形式。</p> <p><span style="color:#999aaa;">代码如下（示例）：</span></p> <pre><code class="language-c language-python">import numpy as np def MinMaxScaler(data):     col = data.shape[1]     for i in range(0, col-1):         arr = data.iloc[:, i]         arr = np.array(arr) #将DataFrame形式转化为ndarray形式，方便后续用numpy计算         min = np.min(arr)         max = np.max(arr)         arr = (arr-min)/(max-min)         data.iloc[:, i] = arr     return data</code></pre> <h2>3.分训练集和测试集</h2> <p>先将数据值和标签值分别用x和y划分开，设置随机数种子random_state，若不设置，则每次运行的结果会不相同。test_size表示测试集比例。</p> <pre><code class="language-python">def train_test_split(data, test_size=0.2, random_state=None):     col = data.shape[1]     x = data.iloc[:, 0:col-1]     y = data.iloc[:, -1]     x = np.array(x)     y = np.array(y)     # 设置随机种子，当随机种子非空时，将锁定随机数     if random_state:         np.random.seed(random_state)         # 将样本集的索引值进行随机打乱         # permutation随机生成0-len(data)随机序列     shuffle_indexs = np.random.permutation(len(x))     # 提取位于样本集中20%的那个索引值     test_size = int(len(x) * test_size)     # 将随机打乱的20%的索引值赋值给测试索引     test_indexs = shuffle_indexs[:test_size]     # 将随机打乱的80%的索引值赋值给训练索引     train_indexs = shuffle_indexs[test_size:]     # 根据索引提取训练集和测试集     x_train = x[train_indexs]     y_train = y[train_indexs]     x_test = x[test_indexs]     y_test = y[test_indexs]     # 将切分好的数据集返回出去     # print(y_train)     return x_train, x_test, y_train, y_test</code></pre> <h2>4.计算距离</h2> <p>此处用到欧氏距离，pow()函数用来计算幂次方。length指属性值数量，在计算最近邻时用到。</p> <pre><code class="language-python">def CountDistance(train,test,length):     distance = 0     for x in range(length):         distance += pow(test[x] - train[x], 2)**0.5     return distance</code></pre> <h2>5.选择最近邻</h2> <p>计算测试集中的一条数据和训练集中的每一条数据的距离，选择距离最近的k个，以少数服从多数原则得出标签值。其中argsort返回的是数值从小到大的索引值，为了找到对应的标签值。</p> <p>tip:用numpy计算众数的方法</p> <pre><code class="language-html">import numpy as np #bincount（）：统计非负整数的个数，不能统计浮点数 counts = np.bincount(nums) #返回众数 np.argmax(counts)</code></pre> <p>少数服从多数原则，计算众数，返回标签值。</p> <pre><code class="language-python">def getNeighbor(x_train,test,y_train,k):     distance = []     #测试集的维度     length = x_train.shape[1]     #测试集合所有训练集的距离     for x in range(x_train.shape[0]):         dist = CountDistance(test, x_train[x], length)         distance.append(dist)     distance = np.array(distance)     #排序     distanceSort = distance.argsort()     # distance.sort(key= operator.itemgetter(1))     # print(len(distance))     # print(distanceSort[0])     neighbors =[]     for x in range(k):         labels = y_train[distanceSort[x]]         neighbors.append(labels)         # print(labels)     counts = np.bincount(neighbors)     label = np.argmax(counts)     # print(label)     return label</code></pre> <p>调用函数时：</p> <pre><code class="language-python">getNeighbor(x_train,x_test[0],y_train,3)</code></pre> <h2>&nbsp;6.计算准确率</h2> <p>用以上KNN算法预测测试集中每一条数据的标签值，存入result数组，将预测结果与真实值比较，计算预测正确的个数与总体个数的比值，即为准确率。</p> <pre><code class="language-python">def getAccuracy(x_test,x_train,y_train,y_test):     result = []     k = 3     # arr_label = getNeighbor(x_train, x_test[0], y_train, k)     for x in range(len(x_test)):         arr_label = getNeighbor(x_train, x_test[x], y_train, k)         result.append(arr_label)     correct = 0     for x in range(len(y_test)):         if result[x] == y_test[x]:            correct += 1     # print(correct)     accuracy = (correct / float(len(y_test))) * 100.0     print("Accuracy:", accuracy, "%")     return accuracy</code></pre> <hr/> <h2>总结</h2> <p>KNN算是机器学习中最简单的算法，实现起来相对简单，但对于我这样的新手，还是花费了大半天时间才整出来。</p> <p>在github上传了项目：https://github.com/chenyi369/KNN</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-105420.htm">CSS &#8211; 隐藏浏览器自带滚动条（Chrome | Safari | Firefox | IE | Edge）</a></p>
+                                        <p>下一个：<a href="/news/article-106240.htm">实战篇：单库单表变更成多库多表</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-72898.htm" title="宠物粮食品牌名字4个字大全及寓意图 宠物粮食品牌名字4个字大全及寓意图片">宠物粮食品牌名字4个字大全及寓意图 宠物粮食品牌名字4个字大全及寓意图片</a></li>
+                        <li class="py-2"><a href="/news/article-68956.htm" title="动物疫苗的使用方法及注意事项视频教学下载 动物疫苗的使用方法及注意事项视频教学下载">动物疫苗的使用方法及注意事项视频教学下载 动物疫苗的使用方法及注意事项视频教学下载</a></li>
+                        <li class="py-2"><a href="/news/article-90370.htm" title="Kubernetes Ingress作用及Ingress-Nginx实际操作详解">Kubernetes Ingress作用及Ingress-Nginx实际操作详解</a></li>
+                        <li class="py-2"><a href="/news/article-103792.htm" title="中国农大动物医院怎么样啊好吗（中国农大动物医院怎么样啊好吗多少钱）">中国农大动物医院怎么样啊好吗（中国农大动物医院怎么样啊好吗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-67668.htm" title="宠物店打疫苗违法吗（宠物店打疫苗违法吗）">宠物店打疫苗违法吗（宠物店打疫苗违法吗）</a></li>
+                        <li class="py-2"><a href="/news/article-100773.htm" title="学宠物美容怎么样?有前景吗?（学宠物美容有前途吗）">学宠物美容怎么样?有前景吗?（学宠物美容有前途吗）</a></li>
+                        <li class="py-2"><a href="/news/article-88175.htm" title="仓鼠皮癣会传染人吗视频（仓鼠长皮癣）">仓鼠皮癣会传染人吗视频（仓鼠长皮癣）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-vmess-github.htm" title="3月19日 | Vmess节点订阅每天更新22M/S免费节点订阅链接">3月19日 | Vmess节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-vmess-node-share.htm" title="3月29日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接">3月29日 | Vmess节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-76262.htm" title="树莓派开发笔记入手研华ADVANTECH工控树莓派UNO-220套件介绍和运行系统">树莓派开发笔记入手研华ADVANTECH工控树莓派UNO-220套件介绍和运行系统</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+    </main>
+        <footer>
+        <!-- Footer Start-->
+        <div class="footer-area">
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-xl-9 col-lg-9 ">
+                            <div class="footer-copy-right">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                <p>
+                                    FreeVmessNode免费订阅官网 版权所有 Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3">
+                            <!-- Footer Social -->
+                            <div class="footer-social f-right">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-globe"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End-->
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- All JS Custom Plugins Link Here here -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/freevmessnode/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/bootstrap.min.js"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.slicknav.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/freevmessnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/slick.min.js"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="/assets/website/js/frontend/freevmessnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/animated.headline.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.magnific-popup.js"></script>
+    <!-- Nice-select, sticky -->
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.sticky.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/freevmessnode/contact.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="/assets/website/js/frontend/freevmessnode/plugins.js"></script>
+    <script src="/assets/website/js/frontend/freevmessnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
