@@ -314,14 +314,19 @@ A5：不同国家和地区政策不同，用户应了解当地法律法规，合
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何为游戏流量提供加速？</h5></div>
+    <div class="panel-heading"><h5>VMess 使用 AEAD 加密对安全性有何帮助？</h5></div>
     <div class="panel-body">
-        Netch 支持 UDP 转发，可为游戏流量建立高速通道。结合策略组和节点延迟检测，可减少丢包和延迟，保证游戏访问稳定流畅，提高网络体验。<hr />    </div>
+        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性，同时降低被检测的风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 运行在低配设备上卡顿，如何减轻资源占用？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 如何通过策略组提升科学上网体验？</h5></div>
     <div class="panel-body">
-        减少 rule-provider 数量、关闭不必要的日志与统计、降低 DNS 轮询频率并禁用内置测速；若使用 TUN 模式，可改为代理模式减少内核负担。必要时升级到更高性能的设备或使用更轻量内核。<hr />    </div>
+        PassWall2 结合策略组和延迟检测功能，可自动选择最优节点处理网页、视频和游戏流量。无需手动切换，保证访问速度、稳定性和整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
+    <div class="panel-body">
+        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
@@ -334,24 +339,9 @@ A5：不同国家和地区政策不同，用户应了解当地法律法规，合
         Matsuri 会测速节点延迟，并结合策略组自动选择延迟低、稳定性高的节点处理视频流量。减少缓冲和卡顿，保证在线视频播放顺畅，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
-    <div class="panel-body">
-        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 使用 AEAD 加密对安全性有何帮助？</h5></div>
-    <div class="panel-body">
-        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性，同时降低被检测的风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 的分组策略可以自动切换节点吗？</h5></div>
     <div class="panel-body">
         可以。用户可以设置策略组，PassWall2 会定期测速并根据延迟或成功率自动选择最优节点，实现智能节点切换，保证网络稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何通过策略组提升科学上网体验？</h5></div>
-    <div class="panel-body">
-        PassWall2 结合策略组和延迟检测功能，可自动选择最优节点处理网页、视频和游戏流量。无需手动切换，保证访问速度、稳定性和整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 节点的 alterId 参数还需要设置吗？</h5></div>
@@ -361,7 +351,17 @@ A5：不同国家和地区政策不同，用户应了解当地法律法规，合
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 是否支持多节点测试？</h5></div>
     <div class="panel-body">
-        Potatso Lite 支持手动测试单个节点延迟，但不支持批量自动测速。用户需逐个连接测试节点性能，或者结合其他客户端获取更全面的测速信息。    </div>
+        Potatso Lite 支持手动测试单个节点延迟，但不支持批量自动测速。用户需逐个连接测试节点性能，或者结合其他客户端获取更全面的测速信息。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何为游戏流量提供加速？</h5></div>
+    <div class="panel-body">
+        Netch 支持 UDP 转发，可为游戏流量建立高速通道。结合策略组和节点延迟检测，可减少丢包和延迟，保证游戏访问稳定流畅，提高网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 运行在低配设备上卡顿，如何减轻资源占用？</h5></div>
+    <div class="panel-body">
+        减少 rule-provider 数量、关闭不必要的日志与统计、降低 DNS 轮询频率并禁用内置测速；若使用 TUN 模式，可改为代理模式减少内核负担。必要时升级到更高性能的设备或使用更轻量内核。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -409,16 +409,16 @@ A5：不同国家和地区政策不同，用户应了解当地法律法规，合
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-27-vmess-node-share.htm" title="7月27日 | Vmess节点订阅每天更新20.2M/S免费节点订阅链接">7月27日 | Vmess节点订阅每天更新20.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-28-today-vmess-node.htm" title="7月28日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接">7月28日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-vmess-node-2026-8-15.htm" title="8月15日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接">8月15日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-8-vmess-github.htm" title="8月8日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接">8月8日 | Vmess节点订阅每天更新18.1M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-8-3.htm" title="8月3日 | Vmess节点订阅每天更新18.4M/S免费节点订阅链接">8月3日 | Vmess节点订阅每天更新18.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-vmess-github.htm" title="8月14日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接">8月14日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-free-vmess-node.htm" title="8月16日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接">8月16日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-free-vmess-node.htm" title="8月20日 | Vmess节点订阅每天更新22.6M/S免费节点订阅链接">8月20日 | Vmess节点订阅每天更新22.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-28-vmess-node.htm" title="8月28日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接">8月28日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-22-free-node-subscribe.htm" title="8月22日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接">8月22日 | Vmess节点订阅每天更新20.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-free-subscribe-node.htm" title="7月30日 | Vmess节点订阅每天更新20.1M/S免费节点订阅链接">7月30日 | Vmess节点订阅每天更新20.1M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-18-free-vmess-node.htm" title="8月18日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接">8月18日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-12-vmess-node.htm" title="8月12日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接">8月12日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-21.htm" title="8月21日 | Vmess节点订阅每天更新22.5M/S免费节点订阅链接">8月21日 | Vmess节点订阅每天更新22.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-free-subscribe-node.htm" title="8月2日 | Vmess节点订阅每天更新19M/S免费节点订阅链接">8月2日 | Vmess节点订阅每天更新19M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-1.htm" title="9月1日 | Vmess节点订阅每天更新19.7M/S免费节点订阅链接">9月1日 | Vmess节点订阅每天更新19.7M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-8-17.htm" title="8月17日 | Vmess节点订阅每天更新18.9M/S免费节点订阅链接">8月17日 | Vmess节点订阅每天更新18.9M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -430,10 +430,10 @@ A5：不同国家和地区政策不同，用户应了解当地法律法规，合
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
