@@ -192,44 +192,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何检查 Clash 连接失败的日志以定位问题？</h5></div>
-    <div class="panel-body">
-        打开 Clash 的日志面板或查看配置目录下的 log 文件，观察报错信息如 DNS 解析失败、节点拒绝连接或 TLS 握手错误。根据关键字（例如 timeout、refused、certificate）逐项排查并比对服务器配置。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 多策略组如何管理大量节点？</h5></div>
-    <div class="panel-body">
-        多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何保证规则订阅的实时更新？</h5></div>
     <div class="panel-body">
         Sing-box 支持远程规则订阅 URL，可设置定期自动更新频率，如每小时或每天。自动更新保证节点和规则保持最新，减少手动维护，提高访问速度和分流效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
-    <div class="panel-body">
-        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 gRPC 传输适合移动网络吗？</h5></div>
-    <div class="panel-body">
-        gRPC 传输支持长连接和多路复用，减少握手次数，降低延迟。对于移动网络和高延迟环境，它能提供稳定和高速的访问体验，同时降低掉线和延迟波动风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 ws+tls 传输模式有什么优点？</h5></div>
-    <div class="panel-body">
-        ws+tls 模式利用 WebSocket 伪装成普通 HTTPS 流量，使得防火墙难以区分代理与正常访问。该模式兼容性强，适合部署在支持 Nginx 或 Caddy 的 Web 服务器上。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的路由规则可设置哪些匹配条件？</h5></div>
-    <div class="panel-body">
-        路由规则支持按域名、IP 地址、端口、协议类型或用户标签进行匹配。结合策略组，可实现国内直连、国外代理或特定节点定向分流，满足不同网络需求。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的自动切换功能如何配置？</h5></div>
-    <div class="panel-body">
-        Shadowrocket 支持根据策略组和节点延迟自动切换最优节点。用户可设置测速频率和延迟阈值，程序会定期测试节点并自动切换，以保证网络稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何防止租用服务器被用作滥发或代理滥用？</h5></div>
@@ -237,9 +202,44 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         限制对外端口与协议，使用防火墙与入侵检测（如 fail2ban），监控流量异常并设置告警，定期审计登录行为，及时阻断滥用源并与服务商沟通封禁滥用账户以防引起供应商封禁整台机。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的 ws+tls 传输模式有什么优点？</h5></div>
+    <div class="panel-body">
+        ws+tls 模式利用 WebSocket 伪装成普通 HTTPS 流量，使得防火墙难以区分代理与正常访问。该模式兼容性强，适合部署在支持 Nginx 或 Caddy 的 Web 服务器上。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 多策略组如何管理大量节点？</h5></div>
+    <div class="panel-body">
+        多策略组可将节点按地区、延迟或用途分类，并结合规则文件自动分流流量。这样可快速选择最优节点，提高访问速度和稳定性，同时优化节点管理和维护效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
     <div class="panel-body">
-        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。    </div>
+        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何检查 Clash 连接失败的日志以定位问题？</h5></div>
+    <div class="panel-body">
+        打开 Clash 的日志面板或查看配置目录下的 log 文件，观察报错信息如 DNS 解析失败、节点拒绝连接或 TLS 握手错误。根据关键字（例如 timeout、refused、certificate）逐项排查并比对服务器配置。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的路由规则可设置哪些匹配条件？</h5></div>
+    <div class="panel-body">
+        路由规则支持按域名、IP 地址、端口、协议类型或用户标签进行匹配。结合策略组，可实现国内直连、国外代理或特定节点定向分流，满足不同网络需求。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 的 gRPC 传输适合移动网络吗？</h5></div>
+    <div class="panel-body">
+        gRPC 传输支持长连接和多路复用，减少握手次数，降低延迟。对于移动网络和高延迟环境，它能提供稳定和高速的访问体验，同时降低掉线和延迟波动风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的自动切换功能如何配置？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 支持根据策略组和节点延迟自动切换最优节点。用户可设置测速频率和延迟阈值，程序会定期测试节点并自动切换，以保证网络稳定性和速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
+    <div class="panel-body">
+        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -287,16 +287,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-22-vmess-node.htm" title="9月22日 | Vmess节点订阅每天更新23M/S免费节点订阅链接">9月22日 | Vmess节点订阅每天更新23M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-18-free-node-subscribe.htm" title="9月18日 | Vmess节点订阅每天更新20.2M/S免费节点订阅链接">9月18日 | Vmess节点订阅每天更新20.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-30-vmess-node.htm" title="9月30日 | Vmess节点订阅每天更新22M/S免费节点订阅链接">9月30日 | Vmess节点订阅每天更新22M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-9-13.htm" title="9月13日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接">9月13日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-vmess-node-2026-10-5.htm" title="10月5日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接">10月5日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-2-today-vmess-node.htm" title="10月2日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接">10月2日 | Vmess节点订阅每天更新22.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-28-free-node-subscribe.htm" title="9月28日 | Vmess节点订阅每天更新20.9M/S免费节点订阅链接">9月28日 | Vmess节点订阅每天更新20.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-8-free-vmess-node.htm" title="10月8日 | Vmess节点订阅每天更新21.4M/S免费节点订阅链接">10月8日 | Vmess节点订阅每天更新21.4M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vmess-node-share-2026-10-13.htm" title="10月13日 | Vmess节点订阅每天更新20.6M/S免费节点订阅链接">10月13日 | Vmess节点订阅每天更新20.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-6-node-share.htm" title="10月6日 | Vmess节点订阅每天更新21.2M/S免费节点订阅链接">10月6日 | Vmess节点订阅每天更新21.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-node-subscribe.htm" title="9月4日 | Vmess节点订阅每天更新20.4M/S免费节点订阅链接">9月4日 | Vmess节点订阅每天更新20.4M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/vmess-windows-2026-10-1.htm" title="10月1日 | Vmess节点订阅每天更新21M/S免费节点订阅链接">10月1日 | Vmess节点订阅每天更新21M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-9-17.htm" title="9月17日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接">9月17日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-subscribe-node.htm" title="9月2日 | Vmess节点订阅每天更新21.2M/S免费节点订阅链接">9月2日 | Vmess节点订阅每天更新21.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-free-vmess-node.htm" title="9月12日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接">9月12日 | Vmess节点订阅每天更新19.9M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-24-free-vmess-node.htm" title="9月24日 | Vmess节点订阅每天更新21.8M/S免费节点订阅链接">9月24日 | Vmess节点订阅每天更新21.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-20-node-share.htm" title="9月20日 | Vmess节点订阅每天更新18M/S免费节点订阅链接">9月20日 | Vmess节点订阅每天更新18M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-10-11.htm" title="10月11日 | Vmess节点订阅每天更新19.1M/S免费节点订阅链接">10月11日 | Vmess节点订阅每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-19.htm" title="9月19日 | Vmess节点订阅每天更新20.2M/S免费节点订阅链接">9月19日 | Vmess节点订阅每天更新20.2M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -308,7 +308,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
