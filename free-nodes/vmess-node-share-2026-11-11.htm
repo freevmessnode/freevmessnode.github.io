@@ -447,39 +447,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 能否同时管理多个客户端节点？</h5></div>
-    <div class="panel-body">
-        支持。Nekobox 与 Shadowsocks、Clash 等客户端独立运行，互不干扰。用户可通过策略组灵活管理节点，实现多客户端分流和网络优化，提高使用便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Trojan 的连接失败常见原因有哪些？</h5></div>
-    <div class="panel-body">
-        Trojan 连接失败可能由于伪装域名错误、TLS 证书过期、防火墙阻挡端口或服务器不可达。通过查看客户端日志可以定位具体原因，并对症下药解决问题。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 全局与规则代理如何选择？</h5></div>
-    <div class="panel-body">
-        全局代理将所有流量通过节点转发，适合游戏或全局科学上网；规则代理只针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，用户可根据需求灵活选择模式。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密能防止哪些风险？</h5></div>
-    <div class="panel-body">
-        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 使用哪种加密算法？</h5></div>
-    <div class="panel-body">
-        Hysteria2 默认使用 AEAD 加密算法（如 ChaCha20-Poly1305），并可结合 TLS 层加密保障安全性。其设计兼顾速度与抗干扰能力，适合高延迟跨境网络环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密为何适合高封锁环境？</h5></div>
     <div class="panel-body">
         AEAD 加密可防止数据篡改和流量特征泄露，降低被检测风险。在高封锁网络中，保证节点可用性和连接稳定性，同时提升数据传输安全性，确保长期安全访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 节点排序功能如何提升访问效率？</h5></div>
+    <div class="panel-heading"><h5>Trojan 的连接失败常见原因有哪些？</h5></div>
     <div class="panel-body">
-        Matsuri 会定期测速节点延迟，并结合策略组自动选择延迟低、稳定性高的节点处理不同流量。提升网页浏览、视频播放和游戏访问速度，减少掉线和卡顿。<hr />    </div>
+        Trojan 连接失败可能由于伪装域名错误、TLS 证书过期、防火墙阻挡端口或服务器不可达。通过查看客户端日志可以定位具体原因，并对症下药解决问题。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 如何导入 URL 格式的订阅？</h5></div>
@@ -492,9 +467,34 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         WebSocket + TLS 可将 V2Ray 流量伪装成 HTTPS 请求，隐藏真实通信特征。结合域名伪装和策略组使用，可以有效绕过封锁，提高节点安全性和连接稳定性，保持长期稳定访问。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 能否同时管理多个客户端节点？</h5></div>
+    <div class="panel-body">
+        支持。Nekobox 与 Shadowsocks、Clash 等客户端独立运行，互不干扰。用户可通过策略组灵活管理节点，实现多客户端分流和网络优化，提高使用便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 全局与规则代理如何选择？</h5></div>
+    <div class="panel-body">
+        全局代理将所有流量通过节点转发，适合游戏或全局科学上网；规则代理只针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，用户可根据需求灵活选择模式。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 使用哪种加密算法？</h5></div>
+    <div class="panel-body">
+        Hysteria2 默认使用 AEAD 加密算法（如 ChaCha20-Poly1305），并可结合 TLS 层加密保障安全性。其设计兼顾速度与抗干扰能力，适合高延迟跨境网络环境。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的 route 功能如何工作？</h5></div>
     <div class="panel-body">
-        Sing-box 提供强大的路由系统，允许用户基于 IP、域名、GEO 数据库、进程名等条件精细分流。配置完成后，程序自动匹配规则，将不同流量转发到对应的出口。    </div>
+        Sing-box 提供强大的路由系统，允许用户基于 IP、域名、GEO 数据库、进程名等条件精细分流。配置完成后，程序自动匹配规则，将不同流量转发到对应的出口。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 节点排序功能如何提升访问效率？</h5></div>
+    <div class="panel-body">
+        Matsuri 会定期测速节点延迟，并结合策略组自动选择延迟低、稳定性高的节点处理不同流量。提升网页浏览、视频播放和游戏访问速度，减少掉线和卡顿。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密能防止哪些风险？</h5></div>
+    <div class="panel-body">
+        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -542,16 +542,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/vmess-windows-2026-11-15.htm" title="11月15日 | Vmess节点订阅每天更新21.7M/S免费节点订阅链接">11月15日 | Vmess节点订阅每天更新21.7M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-10-14-today-vmess-node.htm" title="10月14日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接">10月14日 | Vmess节点订阅每天更新18.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-8-free-subscribe-node.htm" title="11月8日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接">11月8日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-20-today-vmess-node.htm" title="10月20日 | Vmess节点订阅每天更新19M/S免费节点订阅链接">10月20日 | Vmess节点订阅每天更新19M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-22-today-vmess-node.htm" title="10月22日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接">10月22日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/vmess-node-share-2026-10-31.htm" title="10月31日 | Vmess节点订阅每天更新22.4M/S免费节点订阅链接">10月31日 | Vmess节点订阅每天更新22.4M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-17.htm" title="11月17日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接">11月17日 | Vmess节点订阅每天更新21.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vmess-node-share-2026-10-23.htm" title="10月23日 | Vmess节点订阅每天更新21.6M/S免费节点订阅链接">10月23日 | Vmess节点订阅每天更新21.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-vmess-node-2026-11-13.htm" title="11月13日 | Vmess节点订阅每天更新22.5M/S免费节点订阅链接">11月13日 | Vmess节点订阅每天更新22.5M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-10-11.htm" title="10月11日 | Vmess节点订阅每天更新19.1M/S免费节点订阅链接">10月11日 | Vmess节点订阅每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-2-free-subscribe-node.htm" title="11月2日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接">11月2日 | Vmess节点订阅每天更新18.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vmess-windows-2026-10-19.htm" title="10月19日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接">10月19日 | Vmess节点订阅每天更新19.6M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/vmess-node-share-2026-11-11.htm" title="11月11日 | Vmess节点订阅每天更新21.8M/S免费节点订阅链接">11月11日 | Vmess节点订阅每天更新21.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/vmess-node-share-2026-11-1.htm" title="11月1日 | Vmess节点订阅每天更新22.3M/S免费节点订阅链接">11月1日 | Vmess节点订阅每天更新22.3M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/vmess-node-github-2026-10-29.htm" title="10月29日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接">10月29日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-4-free-subscribe-node.htm" title="11月4日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接">11月4日 | Vmess节点订阅每天更新19.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-10-free-vmess-node.htm" title="11月10日 | Vmess节点订阅每天更新22.8M/S免费节点订阅链接">11月10日 | Vmess节点订阅每天更新22.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-26-free-subscribe-node.htm" title="10月26日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接">10月26日 | Vmess节点订阅每天更新19.3M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -563,7 +563,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
